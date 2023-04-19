@@ -4,4 +4,17 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+/*
+  colors: {
+    text-color: '#FBFBFB'
+  },
+
+  fontFamily: {
+    sans: ['Poppins', 'bold']
+
+  },
+*/
+
+
+
 };
