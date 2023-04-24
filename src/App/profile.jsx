@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 
 export default function profile() {
   return (
@@ -10,10 +11,10 @@ export default function profile() {
         </div>
         <p className="font-normal text-m" >Aktueller Trainingsplan</p>
         <div className="bg-bgmedium m-0 pt-16 rounded-2xl px-4 pb-3 h-auto shadow-white flex gap-4">
-            <img src="./img/profile_circle.jpg" className='w-18 h-18 '></img>
+            <img src="./img/profile_circle.svg" className='w-18 h-18 '></img>
             <div>
                 <p className="font-normal text-m pt-2" >Titel des Programms</p>
-                <p className="font-normal text-sm pt-2" >1 von 8 geschafft</p>
+                <p className="font-normal text-xs pt-2" >1 von 8 geschafft</p>
             </div>
             
         </div>

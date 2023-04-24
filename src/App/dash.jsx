@@ -4,7 +4,7 @@ export default function dash() {
   return (
     <div className="bg-bgdark text-white px-6 py-14">
       <h1 className="text-4xl font-bold py-4">Hi XY!</h1>
-      <img src="./img/fitness-image.jpg" className="px-14 py-4 mx-0 flex justify-center"></img>
+      <img src="./img/fitness-image.svg" className="px-14 py-4 mx-0 flex justify-center"></img>
       <div>
         <div className="flex py-4 gap-16">
           <h2 className="text-2xl font-bold">Dein Workout heute</h2>
