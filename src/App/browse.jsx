@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+/*import Navbar from "../Components/navbar";*/
+
 
 export default function test() {
   return (
@@ -9,6 +11,7 @@ export default function test() {
         <div className="bg-gradient-to-br from-greenblue to-seablue pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center"><h2 className="text-2xl font-bold">Titel des Programms</h2></div>
         <div className="bg-gradient-to-br from-orange to-pink pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center"><h2 className="text-2xl font-bold">Stretch and Relax</h2></div>
         <div className="bg-gradient-to-br from-cyan to-yellowgreen pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center"><h2 className="text-2xl font-bold">Titel des Programms</h2></div>
+       
     </div>
     
   )

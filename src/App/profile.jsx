@@ -1,4 +1,5 @@
 import React from 'react';
+/*import Navbar from "../Components/navbar";*/
 
 
 export default function profile() {
@@ -18,6 +19,7 @@ export default function profile() {
             </div>
             
         </div>
+        <Navbar />
     </div>
   )
 }

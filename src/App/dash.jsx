@@ -1,4 +1,14 @@
 import React from "react";
+import { useQuery, gql } from '@apollo/client';
+/*import Navbar from "../Components/navbar";*/
+
+
+
+
+
+
+
+
 
 export default function dash() {
   return (
@@ -16,6 +26,7 @@ export default function dash() {
           <p className="font-normal text-xs">26 Min. - Beweglichkeit</p>
         </div>
       </div>
+      
     </div>
   );
 }
