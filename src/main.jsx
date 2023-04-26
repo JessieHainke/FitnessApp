@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import  ReactDOM from "react-dom";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { Test } from "./App/test";
@@ -7,12 +7,14 @@ import Dash from "./App/dash";
 import Browse from "./App/browse";
 import Profile from "./App/profile";
 import Navbar from "./Components/navbar";
+import Program3 from "./App/program3";
+
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Dash />
+    <Program3 />
     <Navbar />
   </React.StrictMode>,
   document.getElementById("root")
