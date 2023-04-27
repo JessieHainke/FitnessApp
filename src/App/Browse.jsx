@@ -50,7 +50,7 @@ export default function Browse() {
 export function clickHandler() {
   console.log("test");
   return (
-  console.log(<Program />)
+  <Program />
   )
 }
 
