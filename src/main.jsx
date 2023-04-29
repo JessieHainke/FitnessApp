@@ -13,6 +13,7 @@ import Dash from "./App/Dash";
 import Browse from "./App/Browse";
 import Profile from "./App/Profile";
 import Program from "./App/Program";
+import HideProgram from "./App/HideProgram";
 
 const root = createRoot(document.getElementById("root"));
 
