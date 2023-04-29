@@ -2,7 +2,7 @@ import DefaultLayout from "../Layouts/DefaultLayout";
 
 export default function Program() {
   return (
-    <DefaultLayout>
+    <DefaultLayout className={'visible'}>
       <div className="bg-gradient-to-br from-orange to-pink pt-16  px-4 py-3 shadow-white text-center h-full">
         <img src="./img/iconX.svg" className="top-0 right-3"></img>
         <h1 className="text-4xl font-bold py-4 text-white pt-36 pb-24">
