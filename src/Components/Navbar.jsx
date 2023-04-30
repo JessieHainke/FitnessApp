@@ -4,7 +4,7 @@ export default function Navbar() {
       <a href={`/`}>
         <img src="./img/home_dark.svg"></img>
       </a>
-      <a href={`/browse`}>
+      <a href={`/browse2`}>
         <img src="./img/workouts_dark.svg"></img>
       </a>
       <a href={`/profile`}>
