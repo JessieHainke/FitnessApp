@@ -1,9 +1,9 @@
 import React from "react";
 import DefaultLayout from "../Layouts/DefaultLayout";
-import Program from "./Program";
 import { render } from 'react-dom';
 import { useEffect } from "react";
 import { useState, useRef } from 'react';
+import Program from "./Program";
 
 export default function Browse() {
     const [show, setShow] = useState(true);
