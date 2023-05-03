@@ -14,7 +14,7 @@ import Browse from "./App/Browse";
 import Profile from "./App/Profile";
 import Program from "./App/Program";
 import HideProgram from "./App/HideProgram";
-import Browse2 from "./App/Browse2";
+
 import NameInput from "./App/NameInput";
 import WorkoutInfos from "./App/WorkoutInfos";
 import ButtonsOrange from "./App/ButtonsOrange";
@@ -33,10 +33,6 @@ const router = createBrowserRouter([
   {
     path: "/browse",
     element: <Browse />,
-  },
-  {
-    path: "/browse2",
-    element: <Browse2 />,
   },
   {
     path: "/program",

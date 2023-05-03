@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import DefaultLayout from "../Layouts/DefaultLayout";
 import HideProgram from "./HideProgram";
 import ButtonsOrange from "./ButtonsOrange";
+import { NavLink } from "react-router-dom";
 
 
 const PROGRAMS = gql`
@@ -18,26 +19,26 @@ const PROGRAMS = gql`
 
 export default function Program() {
   const { data } = useQuery(PROGRAMS);
-
+  
   return (
     <div className={'inset-0 bg-bgdark text-white  h-screen leading-tight'}>
       <div className="bg-gradient-to-br from-orange to-pink pt-16  px-4 py-3 shadow-white text-center z-10">
-        <img src="./img/iconX.svg" className="top-6 right-6 fixed"></img>
+        <NavLink to="/browse"><img src="./img/iconX.svg" className="top-6 right-6 fixed"></img></NavLink>
         <h1 className="text-4xl font-bold py-4 text-white pt-36 pb-24 pl-3 pr-3">
-          {/*{data.programs[0].name}*/}Titel des Programms
+          {data.programs[1].name}
         </h1>
         <div className="flex justify-between pl-6 pr-6">
           <div className="flex flex-col justify-center items-center">
             <img src="./img/Ellipse 1.svg"></img>
-            <p className="text-xs pt-1 font-thin text-white">{/*{data.programs[0].focus}*/}KRAFT</p>
+            <p className="text-xs pt-1 font-thin text-white">{data.programs[1].focus}</p>
           </div>
           <div className="flex flex-col justify-center items-center">
             <img src="./img/Ellipse 1.svg"></img>
-            <p className="text-xs pt-1 font-thin text-white">{/*{data.programs[0].difficulty}*/}LEICHT</p>
+            <p className="text-xs pt-1 font-thin text-white">{data.programs[1].difficulty}</p>
           </div>
           <div className="flex flex-col justify-center items-center">
             <img src="./img/Ellipse 1.svg" className="w-6"></img>
-            <p className="text-xs pt-1 font-thin text-white">{/*{data.programs[0].duration}*/}6 WOCHEN</p>
+            <p className="text-xs pt-1 font-thin text-white">{data.programs[1].duration} WOCHEN</p>
           </div>
         </div>
       </div>
@@ -51,7 +52,7 @@ export default function Program() {
           dem einem gebratene Satzteile in den Mund fliegen.
         </p>
       </div>
-      <ButtonsOrange>jetzt starten</ButtonsOrange>
+      <ButtonsOrange />
       <div className="bg-bgdark px-6 py-14">
         <h3 className="pt-0 pb-8 font-bold">So ist das Programm aufgeteilt:</h3>
         <div className="flex flex-row justify-between ">
