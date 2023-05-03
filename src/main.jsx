@@ -15,6 +15,7 @@ import Profile from "./App/Profile";
 import Program from "./App/Program";
 import HideProgram from "./App/HideProgram";
 import Browse2 from "./App/Browse2";
+import NameInput from "./App/NameInput";
 
 const root = createRoot(document.getElementById("root"));
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "/program",
     element: <Program />,
+  },
+  {
+    path: "/nameInput",
+    element: <NameInput />,
   },
 ]);
 
