@@ -1,6 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import DefaultLayout from "../Layouts/DefaultLayout";
 import HideProgram from "./HideProgram";
+import ButtonsOrange from "./ButtonsOrange";
 
 
 const PROGRAMS = gql`
@@ -50,7 +51,7 @@ export default function Program() {
           dem einem gebratene Satzteile in den Mund fliegen.
         </p>
       </div>
-      <button className="rounded-full bg-gradient-to-br from-orange to-pink text-bgdark fixed w-28 h-12 inset-x-1/3">jetzt starten</button>
+      <ButtonsOrange>jetzt starten</ButtonsOrange>
       <div className="bg-bgdark px-6 py-14">
         <h3 className="pt-0 pb-8 font-bold">So ist das Programm aufgeteilt:</h3>
         <div className="flex flex-row justify-between ">
