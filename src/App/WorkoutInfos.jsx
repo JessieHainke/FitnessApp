@@ -2,6 +2,7 @@ import React from 'react'
 import DefaultLayout from '../Layouts/DefaultLayout'
 import ButtonsOrange from './ButtonsOrange'
 import { NavLink } from 'react-router-dom'
+import DefaultWorkout from '../Layouts/DefaultWorkout'
 
 export default function WorkoutInfos() {
   return (
@@ -14,7 +15,7 @@ export default function WorkoutInfos() {
             <h1>Tag 1</h1>
             <p className='text-sm'>26 Min. - Kraft und Koordination</p>
         </div>
-        <ButtonsOrange></ButtonsOrange>
+        <ButtonsOrange><NavLink to="/DefaultWorkout"></NavLink></ButtonsOrange>
         
     </DefaultLayout>
   )

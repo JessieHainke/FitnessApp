@@ -18,6 +18,9 @@ import HideProgram from "./App/HideProgram";
 import NameInput from "./App/NameInput";
 import WorkoutInfos from "./App/WorkoutInfos";
 import ButtonsOrange from "./App/ButtonsOrange";
+import DefaultWorkout from "./Layouts/DefaultWorkout";
+import NavbarExercises from "./Components/NavbarExercises";
+import WorkoutArrows from "./Layouts/WorkoutArrows";
 
 const root = createRoot(document.getElementById("root"));
 
@@ -49,6 +52,10 @@ const router = createBrowserRouter([
   {
     path: "/buttonsOrange",
     element: <ButtonsOrange />,
+  },
+  {
+    path: "/defaultWorkout",
+    element: <DefaultWorkout />,
   },
 ]);
 
