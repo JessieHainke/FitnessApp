@@ -18,12 +18,16 @@ const PROGRAMS = gql`
 `;
 
 export default function Program() {
-  const { data } = useQuery(PROGRAMS);
+  const { data, loading } = useQuery(PROGRAMS);
   
+  if (loading) {
+    return <div>Loading...</div>
+  } 
+
   return (
     <div className={'inset-0 bg-bgdark text-white  h-screen leading-tight'}>
       <div className="bg-gradient-to-br from-orange to-pink pt-16  px-4 py-3 shadow-white text-center z-10">
-        <NavLink to="/browse"><IconX /></NavLink>
+        <NavLink to="/browse"></NavLink>
         <h1 className="text-4xl font-bold py-4 text-white pt-36 pb-24 pl-3 pr-3">
           {data.programs[1].name}
         </h1>
