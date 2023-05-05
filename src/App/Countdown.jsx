@@ -3,12 +3,54 @@ import ButtonsOrange from './ButtonsOrange';
 import { setState, useState, useEffect } from 'react';
 
 export default function Countdown() {
-  let initialState = 30;
-  let [countdown, setCountdown] = useState(initialState);
+  let startValue = 10;
+  const [countdown, setCountdown] = useState(startValue);
 
-  function handleClick() {
+    const clickHandler = () => {
+      setInterval(() => {
+        if (startValue > 0) {
+        setCountdown(startValue = startValue - 1);}
+      }, 1000);
+
+    };
+
+    return (
+      <div>
+          <h1>{countdown} Sekunden</h1>
+          <button onClick={clickHandler}>Start</button>
+          {console.log(countdown)}
+      </div>
+      
+    )
+  
+    }
+
     
-    setCountdown((countdown) => countdown - 1);
+  
+
+
+
+
+
+
+
+
+
+   /* setInterval(() => {
+      let x = 10;
+      let t = x - 1;
+      console.log(t);
+    }, 3000)
+    
+      
+
+  
+
+    function count(countdown, minus) {
+        countdown = countdown - minus;
+    }
+    
+    //setCountdown((countdown) => countdown - 1);
     console.log(countdown);
   }
 
@@ -21,11 +63,4 @@ export default function Countdown() {
     </div>
   )
 }
-
-/*
-useEffect(() => {
-      const id = setInterval(() => {
-        setCountdown(c => c - 1);
-      }, 30);
-    }, []);
-    */
+*/
