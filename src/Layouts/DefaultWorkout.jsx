@@ -5,6 +5,7 @@ import NavbarExercises from '../Components/NavbarExercises';
 import WorkoutArrows from './WorkoutArrows';
 import WorkoutFortschritt from '../App/WorkoutFortschritt';
 import WorkoutCountdown from '../App/Countdown';
+import WorkoutChart from '../App/WorkoutChart';
 
 
 export default function DefaultWorkout() {
@@ -13,6 +14,7 @@ export default function DefaultWorkout() {
         <IconX />
         <WorkoutFortschritt />
         <WorkoutArrows />
+       
         <WorkoutCountdown />
         <NavbarExercises />
     </div>

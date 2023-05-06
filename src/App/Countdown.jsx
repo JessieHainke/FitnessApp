@@ -2,8 +2,9 @@ import React from 'react'
 import ButtonsOrange from './ButtonsOrange';
 import { setState, useState, useEffect } from 'react';
 
+
 export default function Countdown() {
-  let startValue = 10;
+  let startValue = 30;
   const [countdown, setCountdown] = useState(startValue);
 
     const clickHandler = () => {
@@ -18,6 +19,7 @@ export default function Countdown() {
       <div>
           <h1>{countdown} Sekunden</h1>
           <button onClick={clickHandler}>Start</button>
+          <div className='w-40 h-40 rounded-full bg-gradient-to-br from-orange to-pink flex self-center inset-y-1/2 inset-x-1/2 p-0 m-0'></div>
           {console.log(countdown)}
       </div>
       
@@ -28,6 +30,7 @@ export default function Countdown() {
     
   
 
+// 360 => 12 * 30
 
 
 

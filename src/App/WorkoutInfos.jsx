@@ -15,7 +15,7 @@ export default function WorkoutInfos() {
             <h1>Tag 1</h1>
             <p className='text-sm'>26 Min. - Kraft und Koordination</p>
         </div>
-        <ButtonsOrange><NavLink to="/DefaultWorkout"></NavLink></ButtonsOrange>
+        <ButtonsOrange><NavLink to="/DefaultWorkout">los!</NavLink></ButtonsOrange>
         
     </DefaultLayout>
   )
