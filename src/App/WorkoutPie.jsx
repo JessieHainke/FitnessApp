@@ -29,6 +29,7 @@ const workoutPercentage = (percentage) => {
         );
     };
 
+    // Zeitangabe in der Mitte des Kreises
     const Text = ({ percentage }) => {
         return (
             <text
@@ -38,18 +39,19 @@ const workoutPercentage = (percentage) => {
                 textAnchor='middle'
                 fontSize={"1.5em"}
             >
-            {percentage.toFixed(0)}%
+            {percentage.toFixed(0)} sec
             </text>
         );
     };
 
+    // Zeitdarstellung im Kreis
     const Pie = ({ percentage, colour }) => {
         const pct = workoutPercentage(percentage);
         return (
             <svg width={200} height={200}>
                 <g transform={`rotate (-90 ${"100 100"})`}>
                     <Circle colour="#3A4151" />
-                    <Circle colour={colour} pct={pct} />
+                    <Circle colour={colour} pct={(pct * 3.33)} /> // 3.33, weil wir 100% als Gesamtwert brauchen
                 </g>
                 <Text percentage={pct} />
             </svg>
