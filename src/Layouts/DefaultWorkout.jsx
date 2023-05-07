@@ -14,7 +14,7 @@ export default function DefaultWorkout() {
         <IconX />
         <WorkoutFortschritt />
         <WorkoutArrows />
-       
+        <WorkoutChart />
         <WorkoutCountdown />
         <NavbarExercises />
     </div>
