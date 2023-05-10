@@ -10,7 +10,7 @@ import WorkoutChart from '../App/WorkoutChart';
 
 export default function DefaultWorkout() {
   return (
-    <div className='bg-bgdark text-white h-screen p-6'>
+    <div className='bg-bgdark text-white h-screen w-full absolute'>
         <IconX />
         <WorkoutFortschritt />
         <WorkoutArrows />

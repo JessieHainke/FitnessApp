@@ -25,8 +25,8 @@ export default function Program() {
   } 
 
   return (
-    <div className={'inset-0 bg-bgdark text-white  h-screen leading-tight'}>
-      <div className="bg-gradient-to-br from-orange to-pink pt-16  px-4 py-3 shadow-white text-center z-10">
+    <div className={'inset-0 bg-bgdark text-white h-screen leading-tight'}>
+      <div className="bg-gradient-to-br from-orange to-pink pt-16 px-4 py-3 shadow-white text-center z-10">
         <NavLink to={data.programs[1].id}></NavLink>
         <h1 className="text-4xl font-bold py-4 text-white pt-36 pb-24 pl-3 pr-3">
           {data.programs[1].name}
