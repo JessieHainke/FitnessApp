@@ -12,6 +12,7 @@ const PROGRAMS = gql`
   }
 `;
 
+
 export default function Dash() {
   const { data, loading, error } = useQuery(PROGRAMS);
   console.log(data, loading, error);

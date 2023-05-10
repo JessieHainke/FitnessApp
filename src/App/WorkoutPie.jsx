@@ -38,6 +38,7 @@ const workoutPercentage = (percentage) => {
                 dominantBaseline="central"
                 textAnchor='middle'
                 fontSize={"1.5em"}
+                color={"#fff"}
             >
             {percentage.toFixed(0)} sec
             </text>

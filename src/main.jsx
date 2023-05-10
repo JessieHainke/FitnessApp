@@ -22,6 +22,7 @@ import DefaultWorkout from "./Layouts/DefaultWorkout";
 import NavbarExercises from "./Components/NavbarExercises";
 import WorkoutArrows from "./Layouts/WorkoutArrows";
 
+
 const root = createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([

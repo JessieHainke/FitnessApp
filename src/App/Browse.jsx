@@ -28,23 +28,35 @@ const { data, loading, error } = useQuery(PROGRAMS);
     return <div>Loading...</div>
   } 
     return (
-            <DefaultLayout>
+            <DefaultLayout className={"flex flex-col p-2 m-2 h-full space-y-4"}>
               <h2 className="text-2xl font-bold" >Browse</h2>
-              <NavLink to="/program" className="bg-gradient-to-br from-orange to-pink pt-16 rounded-2xl px-4 py-3 shadow-white h-48 w-32 text-center">
+              <NavLink to="/program" className="bg-gradient-to-br from-orange to-pink  shadow-white pt-16 rounded-2xl px-4 py-3 text-center h-48">
+                <h2 className="text-2xl font-bold">{data.programs[0].name}</h2>
+              </NavLink>
+              <NavLink to="/program" className="bg-gradient-to-br from-cyan to-yellowgreen pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center">
                 <h2 className="text-2xl font-bold">{data.programs[1].name}</h2>
               </NavLink>
-              <div className="bg-gradient-to-br from-cyan to-yellowgreen pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center">
-                <h2 className="text-2xl font-bold">{data.programs[0].name}</h2>
-              </div>
-              <div className="bg-gradient-to-br from-greenblue to-seablue pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center">
-                <h2 className="text-2xl font-bold">{data.programs[1].name}</h2>
-              </div>
-              <div className="bg-gradient-to-br from-orange to-pink pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center">
-                <h2 className="text-2xl font-bold">{data.programs[0].name}</h2>
-              </div>
-              <div className="bg-gradient-to-br from-cyan to-yellowgreen pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center">
-                <h2 className="text-2xl font-bold">{data.programs[1].name}</h2>
-              </div>
+              <NavLink to="/program" className="bg-gradient-to-br from-greenblue to-seablue pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center">
+                <h2 className="text-2xl font-bold">{data.programs[2].name}</h2>
+              </NavLink>
+              <NavLink to="/program"  className="bg-gradient-to-br from-orange to-pink pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center">
+                <h2 className="text-2xl font-bold">{data.programs[3].name}</h2>
+              </NavLink>
+              <NavLink to="/program"  className="bg-gradient-to-br from-cyan to-yellowgreen pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center">
+                <h2 className="text-2xl font-bold">{data.programs[4].name}</h2>
+              </NavLink>
+              <NavLink to="/program"  className="bg-gradient-to-br from-greenblue to-seablue pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center">
+                <h2 className="text-2xl font-bold">{data.programs[5].name}</h2>
+              </NavLink>
+              <NavLink to="/program"  className="bg-gradient-to-br from-orange to-pink pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center">
+                <h2 className="text-2xl font-bold">{data.programs[6].name}</h2>
+              </NavLink>
+              <NavLink to="/program"  className="bg-gradient-to-br from-cyan to-yellowgreen pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center">
+                <h2 className="text-2xl font-bold">{data.programs[7].name}</h2>
+              </NavLink>
+              <NavLink to="/program"  className="bg-gradient-to-br from-greenblue to-seablue pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center">
+                <h2 className="text-2xl font-bold">{data.programs[8].name}</h2>
+              </NavLink>
               
             </DefaultLayout>
           );
