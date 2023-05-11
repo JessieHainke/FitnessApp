@@ -21,7 +21,7 @@ export default function Dash() {
     return <div>Loading...</div>
   } 
   return (
-      <DefaultLayout>
+      <DefaultLayout className={"h-screen"}>
         <h1 className="text-4xl font-bold py-4">Hi XY! </h1>
         <img
           src="./img/fitness-image.svg"

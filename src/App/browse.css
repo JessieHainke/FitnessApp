@@ -1,0 +1,11 @@
+.bgOrange {
+    background-color: orange;
+}
+
+.bgOrange::before {
+    background-color: red;
+}
+
+.bgOrange::after {
+    background-color: yellow;
+}

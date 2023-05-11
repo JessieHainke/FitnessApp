@@ -3,7 +3,7 @@ import DefaultLayout from "../Layouts/DefaultLayout";
 
 export default function Profile() {
   return (
-    <DefaultLayout className="text-red">
+    <DefaultLayout className="text-red h-screen">
       <h2 className="text-2xl font-bold">Name</h2>
       <div className="flex flex-col content-center pt-12">
         <div className="rounded-full p-14 w-14 h-14 self-center bg-gradient-to-br from-greenblue to-seablue"></div>

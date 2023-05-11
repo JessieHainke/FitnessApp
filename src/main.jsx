@@ -22,6 +22,8 @@ import DefaultWorkout from "./Layouts/DefaultWorkout";
 import NavbarExercises from "./Components/NavbarExercises";
 import WorkoutArrows from "./Layouts/WorkoutArrows";
 
+import "./App/browse.css";
+
 
 const root = createRoot(document.getElementById("root"));
 
