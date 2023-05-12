@@ -24,6 +24,7 @@ const PROGRAMS = gql`
 export default function Browse () {
 const { data, loading, error } = useQuery(PROGRAMS);
 
+
   console.log(data, loading, error);
 
   if (loading) {
@@ -32,11 +33,11 @@ const { data, loading, error } = useQuery(PROGRAMS);
 
 const { programs } = data;
 
-    const bgColor = true;
+/*    const bgColor = true;
     const bgPink = React.createContext( `'bg-gradient-to-br bg-gradient-to-br from-orange to-pink'`);
     const bgCyan = `bg-gradient-to-br from-cyan to-yellowgreen`;
     const bgGreen = `bg-gradient-to-br from-greenblue to-seablue`;
-    
+    */
 
     return (
 
@@ -47,7 +48,7 @@ const { programs } = data;
                 <NavLink 
                   to="/program" 
                   key={`program-${index}`}
-                  className={bgColor ? 'bg-gradient-to-br bg-gradient-to-br from-orange to-pink pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center' : bgCyan || bgPink ? bgCyan : bgGreen}>
+                  class={ (index+1)%3 === 0 && (index+1)%2 === 1 || (index-1)%3 === 1 ? 'bg-gradient-to-br from-orange to-pink  pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center' : 'bg-gradient-to-br from-greenblue to-seablue pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center' }>
                     <h2 className="text-2xl font-bold">{program.name}</h2>
                 </NavLink>
               ))}
