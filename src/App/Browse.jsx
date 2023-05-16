@@ -48,7 +48,11 @@ const { programs } = data;
                 <NavLink 
                   to="/program" 
                   key={`program-${index}`}
-                  class={ (index+1)%3 === 0 && (index+1)%2 === 1 || (index-1)%3 === 1 ? 'bg-gradient-to-br from-orange to-pink  pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center' : 'bg-gradient-to-br from-greenblue to-seablue pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center' }>
+                  className={ 
+                    (index+1)%3 === 0 && (index+1)%2 === 1 ? 'bg-gradient-to-br from-greenblue to-seablue pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center'
+                    : (index-1)%3 === 1 ? 'bg-gradient-to-br from-orange to-pink  pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center'
+                    : "bg-gradient-to-br from-cyan to-yellowgreen pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center"}>
+                   
                     <h2 className="text-2xl font-bold">{program.name}</h2>
                 </NavLink>
               ))}

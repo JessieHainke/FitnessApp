@@ -3,7 +3,7 @@ import DefaultLayout from "../Layouts/DefaultLayout";
 import HideProgram from "./HideProgram";
 import ButtonsOrange from "./ButtonsOrange";
 import { NavLink } from "react-router-dom";
-
+import IconX from "../Layouts/IconX";
 
 const PROGRAMS = gql`
   query Programs {
@@ -19,6 +19,10 @@ const PROGRAMS = gql`
 
 export default function Program() {
   const { data, loading } = useQuery(PROGRAMS);
+
+  const showDays = () => {
+    <div className="text-white">test</div>
+  }
   
   if (loading) {
     return <div>Loading...</div>
@@ -27,6 +31,7 @@ export default function Program() {
   return (
     <div className={'inset-0 bg-bgdark text-white h-screen leading-tight'}>
       <div className="bg-gradient-to-br from-orange to-pink pt-16 px-4 py-3 shadow-white text-center z-10">
+        <IconX><NavLink to="/program"></NavLink></IconX>
         <NavLink to={data.programs[1].id}></NavLink>
         <h1 className="text-4xl font-bold py-4 text-white pt-36 pb-24 pl-3 pr-3">
           {data.programs[1].name}
@@ -56,7 +61,7 @@ export default function Program() {
           dem einem gebratene Satzteile in den Mund fliegen.
         </p>
       </div>
-      <ButtonsOrange><NavLink to="/defaultWorkout"></NavLink></ButtonsOrange>
+      <NavLink to="/defaultWorkout"><ButtonsOrange className="text-black">test</ButtonsOrange></NavLink>
       <div className="bg-bgdark px-6 py-14">
         <h3 className="pt-0 pb-8 font-bold">So ist das Programm aufgeteilt:</h3>
         <div className="flex flex-row justify-between ">
@@ -71,7 +76,7 @@ export default function Program() {
         <div className="flex flex-col justify-evenly pt-16 pb-14">
           <div className="flex justify-between ">
             <h3 className="font-bold pb-6">21 Tage</h3>
-            <p className="text-xs">Alle anzeigen</p>
+            <button className="text-xs bg-bgdark" onClick={showDays}>Alle anzeigen</button>
           </div>
           <div className="flex flex-col gap-3.5 ">
             <div className="rounded-2xl bg-bgmedium w-full flex">
