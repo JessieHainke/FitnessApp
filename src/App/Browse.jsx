@@ -46,7 +46,7 @@ const { programs } = data;
               <h2 className="text-2xl font-bold" >Browse</h2>
               {programs.map((program, index) => (
                 <NavLink 
-                  to="/program" 
+                  to="/workout" 
                   key={`program-${index}`}
                   className={ 
                     (index+1)%3 === 0 && (index+1)%2 === 1 ? 'bg-gradient-to-br from-greenblue to-seablue pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center'

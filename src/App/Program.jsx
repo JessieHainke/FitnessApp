@@ -1,6 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import DefaultLayout from "../Layouts/DefaultLayout";
-import HideProgram from "./HideProgram";
+
 import ButtonsOrange from "./ButtonsOrange";
 import { NavLink } from "react-router-dom";
 import IconX from "../Layouts/IconX";
@@ -31,7 +31,7 @@ export default function Program() {
   return (
     <div className={'inset-0 bg-bgdark text-white h-screen leading-tight'}>
       <div className="bg-gradient-to-br from-orange to-pink pt-16 px-4 py-3 shadow-white text-center z-10">
-        <IconX><NavLink to="/program"></NavLink></IconX>
+        <NavLink to="/workout" className={'bg-opacity-0'}><IconX /></NavLink>
         <NavLink to={data.programs[1].id}></NavLink>
         <h1 className="text-4xl font-bold py-4 text-white pt-36 pb-24 pl-3 pr-3">
           {data.programs[1].name}

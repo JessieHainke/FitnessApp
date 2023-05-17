@@ -13,7 +13,7 @@ import Dash from "./App/Dash";
 import Browse from "./App/Browse";
 import Profile from "./App/Profile";
 import Program from "./App/Program";
-import HideProgram from "./App/HideProgram";
+
 
 import NameInput from "./App/NameInput";
 import WorkoutInfos from "./App/WorkoutInfos";
@@ -21,6 +21,7 @@ import ButtonsOrange from "./App/ButtonsOrange";
 import DefaultWorkout from "./Layouts/DefaultWorkout";
 import NavbarExercises from "./Components/NavbarExercises";
 import WorkoutArrows from "./Layouts/WorkoutArrows";
+import Workout from "./App/Workout";
 
 import "./App/browse.css";
 
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
     path: "/defaultWorkout",
     element: <DefaultWorkout />,
   },
+  {
+    path: "/Workout",
+    element: <Workout />,
+  },
+
 ]);
 
 const client = new ApolloClient({

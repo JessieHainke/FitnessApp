@@ -1,12 +1,11 @@
 import React from 'react'
+import NavbarExerciseInfo from './NavbarExerciseInfo';
 
 export default function NavbarExercises() {
 
   const handleClick = () => {
     console.log('test1234');
-    <div className="fixed top-0 right-0 w-full h-1/2 bg-bgmedium z-20">
-    <button className='bg-bgdark flex justify-center text-white'>okay!</button>
-    </div>
+    <NavbarExerciseInfo />
   }
 
   return (
