@@ -1,16 +1,19 @@
-import React from 'react'
+import React from 'react';
 import NavbarExerciseInfo from './NavbarExerciseInfo';
+import { useNavigate } from "react-router-dom";
 
 export default function NavbarExercises() {
 
-  const handleClick = () => {
-    console.log('test1234');
-    <NavbarExerciseInfo />
-  }
+
+  const navigate = useNavigate();
+  const routeChange = () => {
+    const path = `/navbarExerciseInfo`;
+    navigate(path);
+  };
 
   return (
     <div className="bg-bgmedium rounded-t-2xl fixed left-0 w-screen bottom-0">
-        <button className='float-right' onClick={handleClick}><img src="./img/info.svg"></img></button>
+        <button className='float-right' onClick={routeChange}><img src="./img/info.svg"></img></button>
     </div>
   );
 }

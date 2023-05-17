@@ -22,6 +22,8 @@ import DefaultWorkout from "./Layouts/DefaultWorkout";
 import NavbarExercises from "./Components/NavbarExercises";
 import WorkoutArrows from "./Layouts/WorkoutArrows";
 import Workout from "./App/Workout";
+import NavbarExerciseInfo from "./Components/NavbarExerciseInfo";
+
 
 import "./App/browse.css";
 
@@ -58,14 +60,25 @@ const router = createBrowserRouter([
     element: <ButtonsOrange />,
   },
   {
-    path: "/defaultWorkout",
+    path: "/default-workout",
     element: <DefaultWorkout />,
   },
   {
-    path: "/Workout",
+    path: "/workout",
     element: <Workout />,
   },
-
+  {
+    path: "/navbarExercises",
+    element: <NavbarExercises />,
+  },
+  {
+    path: "/navbarExerciseInfo",
+    element: <NavbarExerciseInfo />,
+  },
+  {
+    path: "*",
+    element: <div>Error</div>,
+  },
 ]);
 
 const client = new ApolloClient({

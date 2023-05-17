@@ -3,6 +3,7 @@ import { useQuery, gql } from "@apollo/client";
 import React from 'react';
 import Program from './Program';
 import ButtonsOrange from "./ButtonsOrange";
+import { Link } from "react-router-dom";
 
     const PROGRAMS = gql`
   query Programs {
@@ -26,12 +27,16 @@ export default function Workout() {
   
     return (
     <div className='bg-bgdark text-white h-screen w-screen'>
-        <h3 className="flex justify-center">{data.programs[1].name}</h3>
+      <div className="flex pt-5 justify-center px-5">
+        <h3 className="">{data.programs[1].name}</h3>
+        <Link to="/program"><img src="./img/arrowToProgram.svg" className="top-6 right-6 fixed" /></Link>
+      </div>
+        
         <div className="absolute inset-y-1/2 w-64 inset-x-1/4">
             <h1 className="text-2xl">Tag 1</h1>
             <p>26 Min. - Kraft und Koordination</p>
         </div>
-        <ButtonsOrange>los!</ButtonsOrange>
+        <Link to="/default-workout" className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 flex justify-center mx-36 text-black">los!</Link>
     </div>
   )
 }
