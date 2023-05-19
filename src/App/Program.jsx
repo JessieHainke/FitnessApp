@@ -1,9 +1,10 @@
 import { useQuery, gql } from "@apollo/client";
 import DefaultLayout from "../Layouts/DefaultLayout";
-
+import { Link } from "react-router-dom";
 import ButtonsOrange from "./ButtonsOrange";
 import { NavLink } from "react-router-dom";
 import IconX from "../Layouts/IconX";
+
 
 const PROGRAMS = gql`
   query Programs {
@@ -16,6 +17,25 @@ const PROGRAMS = gql`
     }
   }
 `;
+/*
+const PROGRAMS = gql`
+  query Program($id: ID!) {
+    program(where: { id: $id}) {
+      id
+      name
+      description
+      focus
+      duration
+      difficulty
+      workouts {
+        category
+      }
+      image {
+        url
+      }
+    }
+  }
+`;*/
 
 export default function Program() {
   const { data, loading } = useQuery(PROGRAMS);
@@ -24,33 +44,44 @@ export default function Program() {
     <div className="text-white">test</div>;
   };
 
+ // const { id } = useParams();
+
+  //const { data, loading, error } = useQuery(PROGRAM, {
+ //   variables: { id }
+  //});
+  console.log(data);
+
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
+  //const { program } = data;
+
   return (
     <div className={"inset-0 bg-bgdark text-white h-screen leading-tight"}>
       <div className="bg-gradient-to-br from-orange to-pink pt-16 px-4 py-3 shadow-white text-center z-10">
+      <Link to="/browse"><IconX /></Link>
         <h1 className="text-4xl font-bold py-4 text-white pt-36 pb-24 pl-3 pr-3">
-          {data.programs[1].name}
+          {data.programs[2].name}
         </h1>
         <div className="flex justify-between pl-6 pr-6">
           <div className="flex flex-col justify-center items-center">
             <img src="./img/Ellipse 1.svg"></img>
             <p className="text-xs pt-1 font-thin text-white">
-              {data.programs[1].focus}
+              {data.programs[2].focus}
             </p>
           </div>
           <div className="flex flex-col justify-center items-center">
             <img src="./img/Ellipse 1.svg"></img>
             <p className="text-xs pt-1 font-thin text-white">
-              {data.programs[1].difficulty}
+              {data.programs[2].difficulty}
             </p>
           </div>
           <div className="flex flex-col justify-center items-center">
             <img src="./img/Ellipse 1.svg" className="w-6"></img>
             <p className="text-xs pt-1 font-thin text-white">
-              {data.programs[1].duration} WOCHEN
+              {data.programs[2].duration} WOCHEN
             </p>
           </div>
         </div>
@@ -71,10 +102,10 @@ export default function Program() {
         <div className="flex flex-row justify-between ">
           <img src="./img/diagramm.svg" className="w-1/3"></img>
           <ul className="list-disc text-sm">
-            <li>Krafttraining</li>
-            <li>Koordination</li>
-            <li>Cardio</li>
-            <li>Beweglichkeit</li>
+            <li color="orange">Krafttraining</li>
+            <li color="pink">Koordination</li>
+            <li color="green">Cardio</li>
+            <li color="yellow">Beweglichkeit</li>
           </ul>
         </div>
         <div className="flex flex-col justify-evenly pt-16 pb-14">

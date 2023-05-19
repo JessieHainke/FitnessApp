@@ -3,7 +3,9 @@ import { useQuery, gql } from "@apollo/client";
 import React from 'react';
 import Program from './Program';
 import ButtonsOrange from "./ButtonsOrange";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import index from "./Browse";
+import Browse from "./Browse";
 
     const PROGRAMS = gql`
   query Programs {
@@ -24,11 +26,11 @@ export default function Workout() {
   if (loading) {
     return <div>Loading...</div>
   } 
-  
+  console.log(index);
     return (
     <div className='bg-bgdark text-white h-screen w-screen'>
       <div className="flex pt-5 justify-center px-5">
-        <h3 className="">{data.programs[1].name}</h3>
+      {programs.map((program, index) => (<NavLink to="/default-workout" key={`program-${index}`}><h3 className="">{program.name}</h3></NavLink>))}
         <Link to="/program"><img src="./img/arrowToProgram.svg" className="top-6 right-6 fixed" /></Link>
       </div>
         
@@ -40,3 +42,15 @@ export default function Workout() {
     </div>
   )
 }
+
+
+{programs.map((program, index) => (
+  <NavLink 
+    to="/workout" 
+    key={`program-${index}`}
+    className={`${backgroundColors[index % backgroundColors.length]}`
+      }>
+     
+      <h2 className="text-2xl font-bold">{program.name}</h2>
+  </NavLink>
+))}
