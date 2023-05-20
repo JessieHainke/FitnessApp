@@ -1,26 +1,13 @@
 import { useQuery, gql } from "@apollo/client";
 import DefaultLayout from "../Layouts/DefaultLayout";
-import { Link } from "react-router-dom";
+import { NavLink, Link, useNavigate, useParams } from "react-router-dom";
 import ButtonsOrange from "./ButtonsOrange";
-import { NavLink } from "react-router-dom";
 import IconX from "../Layouts/IconX";
 
 
 const PROGRAMS = gql`
-  query Programs {
-    programs {
-      id
-      name
-      focus
-      duration
-      difficulty
-    }
-  }
-`;
-/*
-const PROGRAMS = gql`
   query Program($id: ID!) {
-    program(where: { id: $id}) {
+    program(where: { id: $id }) {
       id
       name
       description
@@ -35,53 +22,60 @@ const PROGRAMS = gql`
       }
     }
   }
-`;*/
+`;
+
 
 export default function Program() {
-  const { data, loading } = useQuery(PROGRAMS);
 
-  const showDays = () => {
-    <div className="text-white">test</div>;
+  const navigate = useNavigate();
+  const routeChange = () => {
+    const path = `/browse`;
+    navigate(path);
   };
 
- // const { id } = useParams();
+  const { id } = useParams();
 
-  //const { data, loading, error } = useQuery(PROGRAM, {
- //   variables: { id }
-  //});
-  console.log(data);
+  const { data, loading, error } = useQuery(PROGRAM, {
+    variables: { id },
+  });
+
+
 
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  //const { program } = data;
+  if (error) {
+    return <h2>Something went wrong...</h2>;
+  }
+
+  const { program } = data;
 
   return (
     <div className={"inset-0 bg-bgdark text-white h-screen leading-tight"}>
       <div className="bg-gradient-to-br from-orange to-pink pt-16 px-4 py-3 shadow-white text-center z-10">
-      <Link to="/browse"><IconX /></Link>
+      <button onClick={routeChange}><IconX /></button>
         <h1 className="text-4xl font-bold py-4 text-white pt-36 pb-24 pl-3 pr-3">
-          {data.programs[2].name}
+          {data.program.name}
         </h1>
         <div className="flex justify-between pl-6 pr-6">
           <div className="flex flex-col justify-center items-center">
             <img src="./img/Ellipse 1.svg"></img>
             <p className="text-xs pt-1 font-thin text-white">
-              {data.programs[2].focus}
+              {data.program.focus}
             </p>
           </div>
           <div className="flex flex-col justify-center items-center">
             <img src="./img/Ellipse 1.svg"></img>
             <p className="text-xs pt-1 font-thin text-white">
-              {data.programs[2].difficulty}
+              {data.program.difficulty}
             </p>
           </div>
           <div className="flex flex-col justify-center items-center">
             <img src="./img/Ellipse 1.svg" className="w-6"></img>
             <p className="text-xs pt-1 font-thin text-white">
-              {data.programs[2].duration} WOCHEN
+              {data.program.duration} WOCHEN
             </p>
           </div>
         </div>

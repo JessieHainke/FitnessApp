@@ -3,7 +3,7 @@ import { useQuery, gql } from "@apollo/client";
 import React from 'react';
 import Program from './Program';
 import ButtonsOrange from "./ButtonsOrange";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import index from "./Browse";
 import Browse from "./Browse";
 
@@ -26,13 +26,13 @@ export default function Workout() {
   if (loading) {
     return <div>Loading...</div>
   } 
-  console.log(index);
+
     return (
     <div className='bg-bgdark text-white h-screen w-screen'>
       <div className="flex pt-5 justify-center px-5">
-      {programs.map((program, index) => (<NavLink to="/default-workout" key={`program-${index}`}><h3 className="">{program.name}</h3></NavLink>))}
-        <Link to="/program"><img src="./img/arrowToProgram.svg" className="top-6 right-6 fixed" /></Link>
-      </div>
+     {/*} {programs.map((program, index) => (<Link to="/default-workout"><h3 className="">{program.name}</h3></Link>))}
+        <Link to="/default-workout/"><img src="./img/arrowToProgram.svg" className="top-6 right-6 fixed" /></Link> */}
+    </div>
         
         <div className="absolute inset-y-1/2 w-64 inset-x-1/4">
             <h1 className="text-2xl">Tag 1</h1>
@@ -42,7 +42,7 @@ export default function Workout() {
     </div>
   )
 }
-
+/*
 
 {programs.map((program, index) => (
   <NavLink 
@@ -54,3 +54,4 @@ export default function Workout() {
       <h2 className="text-2xl font-bold">{program.name}</h2>
   </NavLink>
 ))}
+*/
