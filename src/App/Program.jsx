@@ -65,7 +65,7 @@ export default function Program() {
     
     <div className={"inset-0 bg-bgdark text-white h-screen leading-tight"}>
       <div className="bg-gradient-to-br from-orange to-pink pt-16 px-4 py-3 shadow-white text-center z-10">
-      <button onClick={routeChange} src="../img/iconX.svg"><IconX /></button>
+      <button onClick={routeChange} src="./app/%PUBLIC_URL%/img/iconX.svg"><IconX /></button>
         <h1 className="text-4xl font-bold py-4 text-white pt-36 pb-24 pl-3 pr-3">
           {data.program.name}
         </h1>
@@ -96,15 +96,15 @@ export default function Program() {
         </p>
       </div>
       
-      {programs.map((program, index) => (
+     {/* {programs.map((program, index) => (
           <Link 
             to={`/workout/${program.id}`}
             key={`workout-${index}`}
             className={`${backgroundColors[index % backgroundColors.length]}`
               }>
               <h2 className="text-2xl font-bold">{program.name}</h2>
-          </Link>
-        ))};
+            </Link>
+        ))};*/}
       <div className="bg-bgdark px-6 py-14">
         <h3 className="pt-0 pb-8 font-bold">So ist das Programm aufgeteilt:</h3>
         <div className="flex flex-row justify-between ">
