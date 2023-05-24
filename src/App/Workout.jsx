@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 
 
+
 const PROGRAM = gql`
   query Program($id: ID!) {
     program(where: { id: $id }) {
@@ -33,6 +34,7 @@ export default function Workout() {
     variables: { id },
   });
  
+ 
 
   if (loading) {
     return <div>Loading...</div>
@@ -45,13 +47,13 @@ export default function Workout() {
       <button onClick={() => navigate(-1)} className="fixed top-5 right-5">
         <img src="./img/arrowToProgram.svg"></img>
       </button>
-     {/*} {programs.workouts.map((program, index) => (<Link to="/default-workout"><h3 className="">{program.name}</h3></Link>))}
-        <Link to="/default-workout/"><img src="./img/arrowToProgram.svg" className="top-6 right-6 fixed" /></Link> */}
+     {program.workouts.map((program, index) => (<Link to="/default-workout"><h3 className="">{program.name}</h3></Link>))}
+        <Link to="/default-workout/ "><img src="./img/arrowToProgram.svg" className="top-6 right-6 fixed" /></Link>
     </div>
         
         <div className="absolute inset-y-1/2 w-64 inset-x-1/4">
             <h1 className="text-2xl">{program.name}</h1>
-            <p>{program.duration} Min. - Kraft und Koordination</p>
+            <p>{program.duration} Min. - {program.focus}</p>
         </div>
         <Link to={"/default-workout"} className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 flex justify-center mx-36 text-black">los!</Link>
     </div>
