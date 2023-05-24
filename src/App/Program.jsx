@@ -4,7 +4,7 @@ import DefaultLayout from "../Layouts/DefaultLayout";
 import "./browse.css";
 import ButtonsOrange from "./ButtonsOrange";
 import IconX from "../Layouts/IconX";
-
+import Workout from "./Workout";
 
 const PROGRAM = gql`
   query Program($id: ID!) {
@@ -40,8 +40,8 @@ export default function Program() {
     variables: { id },
   });
 
-
-
+  const  programs  = data;
+ 
 
   if (loading) {
     return <div>Loading...</div>;
@@ -50,10 +50,19 @@ export default function Program() {
   if (error) {
     return <h2>Something went wrong...</h2>;
   }
-
+  
   const { program } = data;
 
+  console.log (program);
+  console.log (programs);
+  
+  const backgroundColors = ['bg-gradient-to-br from-orange to-pink  pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center',
+  'bg-gradient-to-br from-greenblue to-seablue pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center',
+  "bg-gradient-to-br from-cyan to-yellowgreen pt-16 rounded-2xl px-4 py-3 shadow-white h-48 text-center"
+];
+
   return (
+    
     <div className={"inset-0 bg-bgdark text-white h-screen leading-tight"}>
       <div className="bg-gradient-to-br from-orange to-pink pt-16 px-4 py-3 shadow-white text-center z-10">
       <button onClick={routeChange} src="../img/iconX.svg"><IconX /></button>
@@ -86,7 +95,16 @@ export default function Program() {
           {data.program.description}
         </p>
       </div>
-      <NavLink to="/workout"><ButtonsOrange className="text-black">test</ButtonsOrange></NavLink>
+      
+      {programs.map((program, index) => (
+          <Link 
+            to={`/workout/${program.id}`}
+            key={`workout-${index}`}
+            className={`${backgroundColors[index % backgroundColors.length]}`
+              }>
+              <h2 className="text-2xl font-bold">{program.name}</h2>
+          </Link>
+        ))};
       <div className="bg-bgdark px-6 py-14">
         <h3 className="pt-0 pb-8 font-bold">So ist das Programm aufgeteilt:</h3>
         <div className="flex flex-row justify-between ">
