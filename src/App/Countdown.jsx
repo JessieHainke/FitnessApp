@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { useQuery, gql } from "@apollo/client";
 import ButtonsOrange from './ButtonsOrange';
 import { setState, useState, useEffect } from 'react';
 import Pie from "./WorkoutPie.jsx";
 import "./chartStyle.css";
 import "../index.css";
+import NextExercise from './NextExercise';
+import Workout from './Workout';
+
+
+const EXERCISE = gql` 
+query exercises {
+  exercise(where: {id: ""}) {
+    name
+  }
+}`;
 
 
 export default function Countdown() {
@@ -23,6 +34,19 @@ export default function Countdown() {
     };
 
 
+
+  const { data, loading } = useQuery(EXERCISE, {
+    variables: { exercise },
+  });
+ 
+ 
+
+  if (loading) {
+    return <div>Loading...</div>
+  } 
+
+  const { program } = data;
+
     return (
       <div className="WorkoutChart">
           {/*<h1>{countdown} Sekunden</h1>*/}
@@ -31,7 +55,7 @@ export default function Countdown() {
           {console.log(countdown)}
           <div >
       <button onClick={clickHandler} ><Pie percentage={countdown} colour={random.colour}>Start</Pie></button>
-      <h1 className='text-2xl'>Plank</h1>
+      <h1 className='text-2xl'>{exercises.exercise}</h1>
     </div>
       </div>
       
