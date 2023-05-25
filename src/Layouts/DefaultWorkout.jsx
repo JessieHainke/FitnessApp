@@ -11,11 +11,11 @@ import { Link } from 'react-router-dom';
 
 export default function DefaultWorkout() {
   return (
-    <div className='bg-bgdark text-white h-screen w-full absolute'>
+    <div className='bg-bgdark text-white h-screen w-full flex flex-col'>
         <Link to="/workout"><IconX /></Link>
         <WorkoutFortschritt />
         <WorkoutArrows />
-        <WorkoutChart />
+        <WorkoutChart className="items-center "/>
         <WorkoutCountdown />
         <NavbarExercises />
     </div>

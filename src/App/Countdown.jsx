@@ -24,13 +24,14 @@ export default function Countdown() {
 
 
     return (
-      <div>
+      <div className="WorkoutChart">
           {/*<h1>{countdown} Sekunden</h1>*/}
-          <button onClick={clickHandler}>Start</button>
+          
           
           {console.log(countdown)}
-          <div className="WorkoutChart">
-      <Pie percentage={countdown} colour={random.colour}></Pie>
+          <div >
+      <button onClick={clickHandler} ><Pie percentage={countdown} colour={random.colour}>Start</Pie></button>
+      <h1 className='text-2xl'>Plank</h1>
     </div>
       </div>
       
