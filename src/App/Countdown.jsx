@@ -36,7 +36,7 @@ export default function Countdown() {
 
 
   const { data, loading } = useQuery(EXERCISE, {
-    variables: { exercise },
+   // variables: { exercise },
   });
  
  

@@ -24,7 +24,9 @@ import WorkoutArrows from "./Layouts/WorkoutArrows";
 import Workout from "./App/Workout";
 import NavbarExerciseInfo from "./Components/NavbarExerciseInfo";
 import NextExercise from "./App/NextExercise";
-
+import BeforeExercise from "./App/BeforeExercise";
+import ExerciseEnd from "./App/ExerciseEnd";
+import WorkoutEnd from "./App/WorkoutEnd";
 
 import "./App/browse.css";
 
@@ -69,17 +71,30 @@ const router = createBrowserRouter([
     element: <Workout />,
   },
   {
+    path: "/workout-end",
+    element: <WorkoutEnd />,
+  },
+  {
     path: "/navbarExercises",
     element: <NavbarExercises />,
+  },
+  {
+    path: "/exercise-end",
+    element: <ExerciseEnd />,
   },
   {
     path: "/next-exercise",
     element: <NextExercise />,
   },
   {
+    path: "/before-exercise",
+    element: <BeforeExercise />,
+  },
+  {
     path: "/navbarExerciseInfo",
     element: <NavbarExerciseInfo />,
   },
+  
   {
     path: "*",
     element: <div>Error</div>,
