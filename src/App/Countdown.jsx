@@ -55,7 +55,7 @@ export default function Countdown() {
           {console.log(countdown)}
           <div >
       <button onClick={clickHandler} ><Pie percentage={countdown} colour={random.colour}>Start</Pie></button>
-      <h1 className='text-2xl'>{exercises.exercise}</h1>
+    {/*  <h1 className='text-2xl'>{exercises.exercise}</h1>*/}
     </div>
       </div>
       
