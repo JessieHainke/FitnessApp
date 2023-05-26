@@ -7,7 +7,7 @@ export default function ExerciseEnd() {
 
     const navigate = useNavigate();
     const routeChange = () => {
-        const path = `/program`;
+        const path = `/workout-end`;
         navigate(path);
       };
 
@@ -19,14 +19,15 @@ export default function ExerciseEnd() {
             <h3 className='text-base'>Du hast 3 Tage am Stück trainiert!</h3>
             <p className='text-sm pb-6'>Wie war das Workout?</p>
             <div className='flex flex-row justify-evenly space-x-3 py-5'>
-                <button className='bg-bgmedium rounded-xl'>zu leicht</button>
-                <button className='bg-bgmedium rounded-xl'>genau richtig</button>
-                <button className='bg-bgmedium rounded-xl'>zu schwer</button>
+                <button className='bg-bgmedium rounded-xl' onClick={routeChange}>zu leicht</button>
+                <button className='bg-bgmedium rounded-xl' onClick={routeChange}>genau richtig</button>
+                <button className='bg-bgmedium rounded-xl' onClick={routeChange}>zu schwer</button>
             </div>
-            <p className='text-bgmedium'>Bewertung überspringen</p>
+            <p className='text-bgmedium' onClick={routeChange}>Bewertung überspringen</p>
         </div>
         
         
     </DefaultLayout>
   )
 }
+
