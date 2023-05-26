@@ -96,13 +96,13 @@ export default function Program() {
         </p>
       </div>
       
-     {/* {programs.map((program, index) => (
+     {/* {programs.map((workout, index) => (
           <Link 
-            to={`/workout/${program.id}`}
+            to={`/workout/${workout.id}`}
             key={`workout-${index}`}
             className={`${backgroundColors[index % backgroundColors.length]}`
               }>
-              <h2 className="text-2xl font-bold">{program.name}</h2>
+              <h2 className="text-2xl font-bold">{workout.name}</h2>
             </Link>
         ))};*/}
       <div className="bg-bgdark px-6 py-14">

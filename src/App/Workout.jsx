@@ -4,22 +4,11 @@ import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 
 
 const PROGRAM = gql`
-  query Program($id: ID!) {
-    program(where: { id: $id }) {
+  query Workout($id: ID!) {
+    workout(where: { id: $id }) {
       id
       name
-      description
-      focus
       duration
-      difficulty
-      image {
-        url
-      }
-      workouts {
-        id
-        duration
-        category
-      }
     }
   }
 `;
