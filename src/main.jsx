@@ -63,7 +63,7 @@ const router = createBrowserRouter([
     element: <ButtonsOrange />,
   },
   {
-    path: "/default-workout",
+    path: "/default-workout/:id",
     element: <DefaultWorkout />,
   },
   {
