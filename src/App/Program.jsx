@@ -132,7 +132,7 @@ export default function Program() {
                 <p className="text-xs">Beweglichkeit</p>
               </NavLink>
             </div>
-              <NavLink to="/workout" className="rounded-2xl bg-bgmedium w-full flex">
+              <NavLink to={`/workout/${id}`} className="rounded-2xl bg-bgmedium w-full flex">
                 <img src="../img/Rectangle2.svg"></img>
                 <div className="p-4">
                   <h3 className="font-bold pb-4">Tag 2</h3>
@@ -140,7 +140,7 @@ export default function Program() {
                   <p className="text-xs">Beweglichkeit</p>
                 </div>
               </NavLink>
-              <NavLink to="/workout" className="rounded-2xl bg-bgmedium w-full flex">
+              <NavLink to={`/workout/${id}`} className="rounded-2xl bg-bgmedium w-full flex">
                 <img src="../img/Rectangle3.svg"></img>
                 <div className="p-4">
                   <h3 className="font-bold pb-4">Tag 3</h3>
@@ -149,6 +149,7 @@ export default function Program() {
                 </div>
               </NavLink>
             </div>
+            
         </div>
       </div>
     </div>

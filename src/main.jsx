@@ -27,8 +27,10 @@ import NextExercise from "./App/NextExercise";
 import BeforeExercise from "./App/BeforeExercise";
 import ExerciseEnd from "./App/ExerciseEnd";
 import WorkoutEnd from "./App/WorkoutEnd";
+import ProgramChart from "./App/ProgramChart";
 
 import "./App/browse.css";
+
 
 
 const root = createRoot(document.getElementById("root"));
@@ -94,7 +96,10 @@ const router = createBrowserRouter([
     path: "/navbarExerciseInfo",
     element: <NavbarExerciseInfo />,
   },
-  
+  {
+    path: "/program-chart",
+    element: <ProgramChart />,
+  },
   {
     path: "*",
     element: <div>Error</div>,

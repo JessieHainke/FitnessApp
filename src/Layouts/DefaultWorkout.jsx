@@ -7,12 +7,44 @@ import WorkoutFortschritt from '../App/WorkoutFortschritt';
 import WorkoutCountdown from '../App/Countdown';
 import WorkoutChart from '../App/WorkoutChart';
 import { Link } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
+import { useQuery, gql } from '@apollo/client';
+
+
+const PROGRAM = gql`
+  query Program($id: ID!) {
+    program(where: { id: $id }) {
+      id
+      name
+      description
+      focus
+      duration
+      difficulty
+      workouts {
+        category
+      }
+      image {
+        url
+      }
+    }
+  }
+`;
 
 
 export default function DefaultWorkout() {
+
+  const { id } = useParams();
+
+  const { data, loading, error } = useQuery(PROGRAM, {
+    variables: { id },
+  });
+
+  const  programs  = data;
+ 
+
   return (
     <div className='bg-bgdark text-white h-screen w-full flex flex-col'>
-        <Link to="/workout"><IconX /></Link>
+        <NavLink to={`/workout/${id}`}><IconX /></NavLink>
         <WorkoutFortschritt />
         <WorkoutArrows />
         <WorkoutChart className="items-center "/>
