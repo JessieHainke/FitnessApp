@@ -41,7 +41,7 @@ export default function Dash() {
             <h2 className="text-2xl font-bold">Dein Workout heute</h2>
             <p className="font-normal text-xs float-right pt-2">Trainingsplan</p>
           </div>
-          {programs.map((program, index) => (
+          {data.programs.map((program, index) => (
           <Link to={`/default-workout/${id}`} key={`programs-${index}`} className="bg-bgmedium pt-16 block w-full rounded-2xl px-4 pb-3 shadow-white">
             <h3 className="text-lg font-bold">Tag 2</h3>
             <h2 className="text-2xl font-bold">{data.programs[3].name}</h2>
