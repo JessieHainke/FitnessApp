@@ -46,7 +46,7 @@ export default function DefaultWorkout() {
     <div className='bg-bgdark text-white h-screen w-full flex flex-col'>
         <NavLink to={`/workout/${id}`}><IconX /></NavLink>
         <WorkoutFortschritt />
-        <WorkoutArrows />
+        <WorkoutArrows onClick={id} />
         <WorkoutChart className="items-center "/>
         <WorkoutCountdown />
         <NavbarExercises />

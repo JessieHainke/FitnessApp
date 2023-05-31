@@ -23,8 +23,6 @@ import NavbarExercises from "./Components/NavbarExercises";
 import WorkoutArrows from "./Layouts/WorkoutArrows";
 import Workout from "./App/Workout";
 import NavbarExerciseInfo from "./Components/NavbarExerciseInfo";
-import NextExercise from "./App/NextExercise";
-import BeforeExercise from "./App/BeforeExercise";
 import ExerciseEnd from "./App/ExerciseEnd";
 import WorkoutEnd from "./App/WorkoutEnd";
 import ProgramChart from "./App/ProgramChart";
@@ -83,14 +81,6 @@ const router = createBrowserRouter([
   {
     path: "/exercise-end",
     element: <ExerciseEnd />,
-  },
-  {
-    path: "/next-exercise",
-    element: <NextExercise />,
-  },
-  {
-    path: "/before-exercise",
-    element: <BeforeExercise />,
   },
   {
     path: "/navbarExerciseInfo",

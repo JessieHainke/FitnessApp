@@ -1,5 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import DefaultLayout from "../Layouts/DefaultLayout";
+import { Link, useParams } from "react-router-dom";
 
 const PROGRAMS = gql`
   query Programs {
@@ -14,8 +15,16 @@ const PROGRAMS = gql`
 
 
 export default function Dash() {
-  const { data, loading, error } = useQuery(PROGRAMS);
+  
+  const { id } = useParams();
+  const { data, loading, error } = useQuery(PROGRAMS, {
+    variables: { id },
+  });
   console.log(data, loading, error);
+
+ 
+ 
+
 
   if (loading) {
     return <div>Loading...</div>
@@ -32,16 +41,17 @@ export default function Dash() {
             <h2 className="text-2xl font-bold">Dein Workout heute</h2>
             <p className="font-normal text-xs float-right pt-2">Trainingsplan</p>
           </div>
-          <div className="bg-bgmedium pt-16 rounded-2xl px-4 pb-3 shadow-white">
+          {programs.map((program, index) => (
+          <Link to={`/default-workout/${id}`} key={`programs-${index}`} className="bg-bgmedium pt-16 block w-full rounded-2xl px-4 pb-3 shadow-white">
             <h3 className="text-lg font-bold">Tag 2</h3>
-            <h2 className="text-2xl font-bold">{data.programs[0].name}</h2>
+            <h2 className="text-2xl font-bold">{data.programs[3].name}</h2>
             <div className="flex row gap-3">
-              <p className="font-normal text-xs">{data.programs[0].duration}</p>
+              <p className="font-normal text-xs">{data.programs[3].duration}</p>
               <p className="font-normal text-xs">-</p>
-              <p className="font-normal text-xs">{data.programs[0].focus}</p>
-            </div>
-            
-          </div>
+              <p className="font-normal text-xs">{data.programs[3].focus}</p>
+            </div> 
+          </Link>
+          ))}
         </div>
       </DefaultLayout>
     );

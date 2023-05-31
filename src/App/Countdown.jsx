@@ -5,7 +5,7 @@ import { setState, useState, useEffect } from 'react';
 import Pie from "./WorkoutPie.jsx";
 import "./chartStyle.css";
 import "../index.css";
-import NextExercise from './NextExercise';
+
 import Workout from './Workout';
 
 

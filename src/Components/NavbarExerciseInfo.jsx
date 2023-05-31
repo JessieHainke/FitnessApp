@@ -35,7 +35,7 @@ export default function NavbarExerciseInfo() {
         <h2 className='text-2xl font-bold'>Plank</h2>
         <p className='pb-14'>Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem gebratene Satzteile in den Mund fliegen.</p>
         <div className='flex justify-center'>
-            <button className='bg-bgdark text-white' onClick={routeChange}>okay!</button>
+            <button className='bg-bgdark text-white' onClick={() => navigate(-1)}>okay!</button>
         </div>
       </div>
     </div>
