@@ -1,16 +1,9 @@
-import React from 'react';
-
-
+import React from "react";
 
 export function Test() {
-
   function HomeButton() {
-        console.log('funktioniert!') 
-      };
+    console.log("funktioniert!");
+  }
 
-
-  return (
-    <button onClick={HomeButton}>test</button>
-  )
-};
-
+  return <button onClick={HomeButton}>test</button>;
+}

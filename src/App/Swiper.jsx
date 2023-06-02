@@ -8,7 +8,7 @@ import { data } from 'autoprefixer';
 
 
 export default function Swiper('.swiper', {
-    direction: 'horizontal',
+    direction: 'horizontal';
     loop: true
 
     // configure Swiper to use modules

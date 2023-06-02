@@ -14,7 +14,6 @@ import Browse from "./App/Browse";
 import Profile from "./App/Profile";
 import Program from "./App/Program";
 
-
 import NameInput from "./App/NameInput";
 import WorkoutInfos from "./App/WorkoutInfos";
 import ButtonsOrange from "./App/ButtonsOrange";
@@ -28,9 +27,6 @@ import WorkoutEnd from "./App/WorkoutEnd";
 import ProgramChart from "./App/ProgramChart";
 
 import "./App/browse.css";
-
-
-
 
 const root = createRoot(document.getElementById("root"));
 
@@ -95,7 +91,6 @@ const router = createBrowserRouter([
     path: "*",
     element: <div>Error</div>,
   },
-
 ]);
 
 const client = new ApolloClient({

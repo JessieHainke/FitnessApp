@@ -94,28 +94,7 @@ export default function Navbar() {
   );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import { NavLink } from "react-router-dom";
+/* import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import homeNormal from "../img/home_dark.svg";
 import homeWhite from "../img/home.svg";
@@ -148,8 +127,7 @@ export default function Navbar() {
       </div>
     </div>
   );
-}*/
-
+} */
 
 /*
 export default function Navbar() {
@@ -167,4 +145,4 @@ export default function Navbar() {
       </a>
     </div>
   );
-}*/
+} */
