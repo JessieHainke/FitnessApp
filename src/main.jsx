@@ -31,6 +31,7 @@ import "./App/browse.css";
 
 
 
+
 const root = createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -94,6 +95,7 @@ const router = createBrowserRouter([
     path: "*",
     element: <div>Error</div>,
   },
+
 ]);
 
 const client = new ApolloClient({
