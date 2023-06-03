@@ -1,5 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import { NavLink, Link, useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 import DefaultLayout from "../Layouts/DefaultLayout";
 import "./browse.css";
 import ButtonsOrange from "./ButtonsOrange";
@@ -19,6 +20,7 @@ const PROGRAM = gql`
         id
         category
         name
+        duration
       }
       image {
         url
@@ -34,9 +36,10 @@ export default function Program() {
     navigate(path);
   };
 
+  const [hasMore, setHasMore] = useState(true);
   const { id } = useParams();
 
-  const { data, loading, error } = useQuery(PROGRAM, {
+  const { data, loading, error, refetch } = useQuery(PROGRAM, {
     variables: { id },
   });
 
@@ -107,8 +110,20 @@ export default function Program() {
         </div>
         <div className="flex flex-col justify-evenly pt-16 pb-14">
           <div className="flex justify-between ">
-            <h3 className="font-bold pb-6">21 Tage</h3>
-            <button className="text-xs bg-bgdark">Alle anzeigen</button>
+            <h3 className="font-bold pb-6">
+              {`${data.program.duration}`} Tage
+            </h3>
+            {hasMore && (
+              <button
+                onClick={() => {
+                  refetch({ first: undefined });
+                  setHasMore(false);
+                }}
+                className="text-xs bg-dark"
+              >
+                Alle anzeigen
+              </button>
+            )}
           </div>
           <div className="flex flex-col gap-3.5 ">
             {program.workouts.map((workout, index) => (
@@ -119,11 +134,15 @@ export default function Program() {
                   backgroundColors[index % backgroundColors.length]
                 }`}
               >
-                <img src="../img/Rectangle2.svg"></img>
+                <div
+                  className={backgroundColors[index % backgroundColors.length]}
+                ></div>
                 <div className="p-4">
-                  <h3 className="font-bold pb-4">Tag 2 - {workout.name}</h3>
-                  <p className="text-xs">26 Min. -</p>
-                  <p className="text-xs">Beweglichkeit</p>
+                  <h3 className="font-bold pb-4">
+                    Tag {index + 1} - {workout.name}
+                  </h3>
+                  <p className="text-xs">{workout.duration}</p>
+                  <p className="text-xs">{workout.category}</p>
                 </div>
               </NavLink>
             ))}
