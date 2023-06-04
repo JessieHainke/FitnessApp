@@ -34,7 +34,7 @@ export default function Workout() {
           <img src="../img/arrowToProgram.svg"></img>
         </button>
         {program.workouts.map((workout, index) => (
-          <div>
+          <div key={`program-${index}`}>
             <h3 className="">{workout.name}</h3>
             <NavLink to={`/program/${id}`}>
               <img
@@ -45,11 +45,11 @@ export default function Workout() {
             <div className="absolute inset-y-1/2 w-64 inset-x-1/4">
               <h1 className="text-2xl">{workouts.index}</h1>
               <p>
-                {program.workouts.duration} Min. - {workouts.category}
+                {workouts.duration} Min. - {workouts.category}
               </p>
             </div>
           </div>
-        ))}
+        ))};
       </div>
       <NavLink
         to={`/default-workout/${id}`}
@@ -60,16 +60,3 @@ export default function Workout() {
     </div>
   );
 }
-/*
-
-{programs.map((program, index) => (
-  <NavLink 
-    to="/workout" 
-    key={`program-${index}`}
-    className={`${backgroundColors[index % backgroundColors.length]}`
-      }>
-     
-      <h2 className="text-2xl font-bold">{program.name}</h2>
-  </NavLink>
-))}
-*/

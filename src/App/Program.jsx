@@ -129,7 +129,7 @@ export default function Program() {
             {program.workouts.map((workout, index) => (
               <NavLink
                 key={`workout-${index}`}
-                to={`/workout/${workout.id}`}
+                to={`workout/${workout.id}`}
                 className={`rounded-2xl bg-bgmedium w-full flex ${
                   backgroundColors[index % backgroundColors.length]
                 }`}

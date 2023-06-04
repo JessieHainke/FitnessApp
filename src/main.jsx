@@ -25,6 +25,7 @@ import NavbarExerciseInfo from "./Components/NavbarExerciseInfo";
 import ExerciseEnd from "./App/ExerciseEnd";
 import WorkoutEnd from "./App/WorkoutEnd";
 import ProgramChart from "./App/ProgramChart";
+import Swiper from "./App/Swiper";
 
 import "./App/browse.css";
 
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
     element: <DefaultWorkout />,
   },
   {
-    path: "/workout/:id",
+    path: "/program/:id/workout/:id",
     element: <Workout />,
   },
   {
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
   {
     path: "/program-chart",
     element: <ProgramChart />,
+  },
+  {
+    path: "/swiper",
+    element: <Swiper/>,
   },
   {
     path: "*",
