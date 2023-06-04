@@ -1,14 +1,16 @@
 import { useQuery, gql } from "@apollo/client";
 import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import Swiper from "./Swiper";
 
 const PROGRAM = gql`
   query WORKOUTS($id: ID!) {
     program(where: { id: $id }) {
-      workouts(where: { id: $id }) {
-        duration
-        id
-        category
-      }
+      id
+    }
+    workouts(where: { id: $id }) {
+      id
+      name
+      duration
     }
   }
 `;
@@ -26,14 +28,15 @@ export default function Workout() {
   }
 
   const { program, workouts } = data; // warum meckert er bei dieser blöden Zeile?!? Ich check das nicht... :-/
-
+  console.log(workouts); // program ist null, workouts ist undefined
   return (
     <div className="bg-bgdark text-white h-screen w-screen">
+      
       <div className="flex pt-5 justify-center px-5">
         <button onClick={() => navigate(-1)} className="fixed top-5 right-5">
           <img src="../img/arrowToProgram.svg"></img>
         </button>
-        {program.workouts.map((workout, index) => (
+        {workouts.map((workout, index) => (
           <div key={`program-${index}`}>
             <h3 className="">{workout.name}</h3>
             <NavLink to={`/program/${id}`}>
@@ -49,7 +52,8 @@ export default function Workout() {
               </p>
             </div>
           </div>
-        ))};
+        ))}
+        ;
       </div>
       <NavLink
         to={`/default-workout/${id}`}
@@ -57,6 +61,7 @@ export default function Workout() {
       >
         los!
       </NavLink>
+      
     </div>
   );
 }
