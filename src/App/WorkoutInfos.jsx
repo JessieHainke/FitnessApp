@@ -2,7 +2,7 @@ import React from "react";
 import DefaultLayout from "../Layouts/DefaultLayout";
 import ButtonsOrange from "./ButtonsOrange";
 import { NavLink } from "react-router-dom";
-import DefaultWorkout from "../Layouts/DefaultWorkout";
+import Exercises from "../Layouts/Exercises";
 
 export default function WorkoutInfos() {
   return (

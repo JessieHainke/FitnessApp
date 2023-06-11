@@ -7,6 +7,8 @@ import "./chartStyle.css";
 import "../index.css";
 
 import Workout from "./Workout";
+import { NavLink } from "react-router-dom";
+import ExerciseEnd from "../exercise-end.jsx";
 
 const EXERCISE = gql`
   query exercises {
@@ -28,8 +30,10 @@ export default function Countdown() {
   const clickHandler = () => {
     setInterval(() => {
       if (startValue > 0) {
-        setCountdown((startValue = startValue - 1));
-      }
+        setCountdown((startValue = startValue - 1))
+          if (startValue < 1 && startValue > -1) {
+        window.open(<ExerciseEnd />);
+      }};
     }, 1000);
   };
 

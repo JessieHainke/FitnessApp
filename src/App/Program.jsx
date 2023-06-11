@@ -99,7 +99,7 @@ export default function Program() {
                 key={`workout-${index}`}
                   to={`workout/${workout.id}`}>
               Los geht's!</NavLink>
-              ))};
+              ))}
             </div>
         </div>
       </div>

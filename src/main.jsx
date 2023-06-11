@@ -17,7 +17,7 @@ import Program from "./App/Program";
 import NameInput from "./App/NameInput";
 import WorkoutInfos from "./App/WorkoutInfos";
 import ButtonsOrange from "./App/ButtonsOrange";
-import DefaultWorkout from "./Layouts/DefaultWorkout";
+import Exercises from "./Layouts/Exercises";
 import NavbarExercises from "./Components/NavbarExercises";
 import WorkoutArrows from "./Layouts/WorkoutArrows";
 import Workout from "./App/Workout";
@@ -61,8 +61,8 @@ const router = createBrowserRouter([
     element: <ButtonsOrange />,
   },
   {
-    path: "/default-workout/:id",
-    element: <DefaultWorkout />,
+    path: "/Exercises/:id",
+    element: <Exercises />,
   },
   {
     path: "/program/:programId/workout/:workoutId",

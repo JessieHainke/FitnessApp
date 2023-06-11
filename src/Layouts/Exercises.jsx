@@ -9,6 +9,7 @@ import WorkoutChart from "../App/WorkoutChart";
 import { Link } from "react-router-dom";
 import { NavLink, useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
+import Swiper from "../App/Swiper";
 
 const PROGRAM = gql`
   query Program($id: ID!) {
@@ -40,11 +41,11 @@ export default function DefaultWorkout() {
 
   return (
     <div className="bg-bgdark text-white h-screen w-full flex flex-col">
-      <NavLink to={`/workout/${id}`}>
+      <NavLink to={`/workout-end`}>
         <IconX />
       </NavLink>
       <WorkoutFortschritt />
-      <WorkoutArrows onClick={id} />
+      <Swiper />
       <WorkoutChart className="items-center " />
       <WorkoutCountdown />
       <NavbarExercises />
