@@ -1,7 +1,8 @@
 // import Swiper core and required modules
 import { Navigation, Pagination } from "swiper";
-
+import WorkoutFortschritt from "./WorkoutFortschritt";
 import { Swiper, SwiperSlide } from "swiper/react";
+
 
 // Import Swiper styles
 import "swiper/swiper.css";
@@ -18,11 +19,15 @@ export default () => {
       pagination={{ clickable: false }}
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log("slide change")}
+      width={screen}
     >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
+      <div className="flex flex-col items-center">
+        <SwiperSlide><button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button></SwiperSlide>
+        <SwiperSlide><button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button></SwiperSlide>
+        <SwiperSlide><button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button></SwiperSlide>
+        <SwiperSlide><button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button></SwiperSlide>
+        
+      </div>
       ...
     </Swiper>
   );

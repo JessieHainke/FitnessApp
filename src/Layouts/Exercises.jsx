@@ -45,10 +45,11 @@ export default function DefaultWorkout() {
         <IconX />
       </NavLink>
       <WorkoutFortschritt />
-      <Swiper />
+      
       <WorkoutChart className="items-center " />
       <WorkoutCountdown />
       <NavbarExercises />
+      <Swiper />
     </div>
   );
 }

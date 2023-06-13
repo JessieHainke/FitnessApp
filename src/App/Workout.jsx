@@ -12,6 +12,7 @@ const PROGRAM = gql`
         name
         duration
         category
+        
       }
     }
   }
@@ -46,7 +47,7 @@ export default function Workout() {
               ></img>
             </NavLink>
             <div className="absolute inset-y-1/2 inset-x-1/4">
-              <h1 className="text-4xl"> Tag {index + 1}</h1>
+              <h1 className="text-4xl"> Tag 1</h1>
               <p>
                 {workout.duration} Min. - {workout.category}
               </p>
