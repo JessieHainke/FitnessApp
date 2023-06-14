@@ -11,41 +11,64 @@ import { NavLink, useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import Swiper from "../App/Swiper";
 
-const PROGRAM = gql`
-  query Program($id: ID!) {
-    program(where: { id: $id }) {
-      id
-      name
-      description
-      focus
-      duration
-      difficulty
-      workouts {
-        category
+const EXERCISES = gql`
+query Exercises($workoutId: ID!, $programId: ID!) {
+  program(where: { id: $programId }) {
+    id
+  }
+  workouts(where: { id: $workoutId }) {
+    id
+    name
+    duration
+    index
+    exercises {
+      ... on ExerciseWithDuration {
+        id
+        exercise {
+          id
+        }
       }
-      image {
-        url
+      ... on ExerciseWithReps {
+        id
+        exercise {
+          id
+        }
       }
     }
   }
+}
 `;
+
 
 export default function DefaultWorkout() {
   const { id } = useParams();
 
-  const { data, loading, error } = useQuery(PROGRAM, {
-    variables: { id },
+
+  const { programId, workoutId } = useParams();
+
+  const { data, loading } = useQuery(EXERCISES, {
+    variables: { programId, workoutId },
   });
 
-  const programs = data;
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const { program } = data;
+  const { workouts } = program;
+  const { exercise } = workouts;
+  
+
+
 
   return (
     <div className="bg-bgdark text-white h-screen w-full flex flex-col">
       <NavLink to={`/workout-end`}>
         <IconX />
       </NavLink>
-      <WorkoutFortschritt />
-      
+      <div>
+        <p className="text-white flex justify-center text-2xl pt-10">{}</p>
+      </div>
       <WorkoutChart className="items-center " />
       <WorkoutCountdown />
       <NavbarExercises />

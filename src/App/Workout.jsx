@@ -30,9 +30,9 @@ export default function Workout() {
     return <div>Loading...</div>;
   }
 
-  const { program } = data; // warum meckert er bei dieser blöden Zeile?!? Ich check das nicht... :-/
+  const { program } = data; 
   const { workouts } = program;
-  console.log(workouts, program); // program ist null, workouts ist undefined
+  console.log(workouts, program); 
   
   return (
     <div className="bg-bgdark text-white h-screen w-screen">
