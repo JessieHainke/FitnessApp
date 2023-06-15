@@ -61,7 +61,7 @@ const router = createBrowserRouter([
     element: <ButtonsOrange />,
   },
   {
-    path: "/Exercises/:id",
+    path: "/exercise/:id",
     element: <Exercises />,
   },
   {

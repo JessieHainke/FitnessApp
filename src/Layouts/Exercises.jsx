@@ -41,9 +41,6 @@ query Exercises($workoutId: ID!, $programId: ID!) {
 
 
 export default function DefaultWorkout() {
-  const { id } = useParams();
-
-
   const { programId, workoutId } = useParams();
 
   const { data, loading } = useQuery(EXERCISES, {
@@ -59,7 +56,7 @@ export default function DefaultWorkout() {
   const { exercise } = workouts;
   
 
-
+console.log(exercise);
 
   return (
     <div className="bg-bgdark text-white h-screen w-full flex flex-col">
