@@ -1,14 +1,71 @@
 // import Swiper core and required modules
+import { NavLink, useParams, Link } from "react-router-dom";
+import { useQuery, gql } from "@apollo/client";
 import { Navigation, Pagination } from "swiper";
-import WorkoutFortschritt from "./WorkoutFortschritt";
 import { Swiper, SwiperSlide } from "swiper/react";
+import WorkoutFortschritt from "./WorkoutFortschritt";
 
 
 // Import Swiper styles
 import "swiper/swiper.css";
 import "swiper/swiper-bundle.css";
 
+const EXERCISES = gql`
+  query Exercises($programId: ID!, $workoutId: ID!) {
+    program(where: { id: $programId }) {
+      id
+    }
+    workouts(where: { id: $workoutId }) {
+      id
+      name
+      duration
+      index
+      exercises {
+        ... on ExerciseWithDuration {
+          id
+          duration
+          exercise {
+            id
+            name
+            description
+            completed
+          }
+        }
+        ... on ExerciseWithReps {
+          id
+          reps
+          exercise {
+            id
+            name
+            description
+            completed
+          }
+        }
+      }
+    }
+  }
+`;
+
 export default () => {
+
+  const { programId, workoutId } = useParams();
+
+  const { data, loading } = useQuery(EXERCISES, {
+    variables: { programId, workoutId },
+  });
+
+  console.log(data);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const { program } = data;
+  const { workouts } = program;
+  const { exercises } = data.program.workouts[0];
+
+console.log(program, exercises, workouts);
+
   return (
     <Swiper
       // install Swiper modules
