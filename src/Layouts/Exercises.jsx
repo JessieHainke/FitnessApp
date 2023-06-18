@@ -78,7 +78,7 @@ console.log(program, exercises, workouts);*/}
       <WorkoutChart className="items-center " />
       <WorkoutCountdown />
       <NavbarExercises />
-     {/*} <Swiper /> */}
+      <Swiper />
     </div>
   );
 }

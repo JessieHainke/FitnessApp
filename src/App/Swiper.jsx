@@ -4,41 +4,35 @@ import { useQuery, gql } from "@apollo/client";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import WorkoutFortschritt from "./WorkoutFortschritt";
-
+import ExWithReps from "../Components/ExWithReps";
 
 // Import Swiper styles
 import "swiper/swiper.css";
 import "swiper/swiper-bundle.css";
 
-const EXERCISES = gql`
-  query Exercises($programId: ID!, $workoutId: ID!) {
+const TOEXERCISES = gql`
+  query TOEXERCISES ( $programId: ID!, $workoutId: ID! ) {
     program(where: { id: $programId }) {
       id
-    }
-    workouts(where: { id: $workoutId }) {
-      id
-      name
-      duration
-      index
-      exercises {
-        ... on ExerciseWithDuration {
-          id
-          duration
-          exercise {
+      workouts(where: { id: $workoutId }) {
+        exercises {
+          ... on ExerciseWithDuration {
             id
-            name
-            description
-            completed
+            exercise {
+              description
+              id
+              name
+              completed
+            }
           }
-        }
-        ... on ExerciseWithReps {
-          id
-          reps
-          exercise {
+          ... on ExerciseWithReps {
             id
-            name
-            description
-            completed
+            exercise {
+              name
+              id
+              description
+              completed
+            }
           }
         }
       }
@@ -46,11 +40,10 @@ const EXERCISES = gql`
   }
 `;
 
-export default () => {
-
+export default function Swipe() {
   const { programId, workoutId } = useParams();
 
-  const { data, loading } = useQuery(EXERCISES, {
+  const { data, loading } = useQuery(TOEXERCISES, {
     variables: { programId, workoutId },
   });
 
@@ -59,12 +52,15 @@ export default () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-
+  {
+    /*
   const { program } = data;
   const { workouts } = program;
   const { exercises } = data.program.workouts[0];
 
 console.log(program, exercises, workouts);
+*/
+  }
 
   return (
     <Swiper
@@ -79,16 +75,28 @@ console.log(program, exercises, workouts);
       width={screen}
     >
       <div className="flex flex-col items-center">
-        <SwiperSlide><button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button></SwiperSlide>
-        <SwiperSlide><button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button></SwiperSlide>
-        <SwiperSlide><button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button></SwiperSlide>
-        <SwiperSlide><button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button></SwiperSlide>
-        
+        <SwiperSlide>
+          <button className="bg-gradient-to-br from-orange to-pink rounded-2xl">
+            {" "}
+          </button>
+        </SwiperSlide>
+        <SwiperSlide>
+          <button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button>
+        </SwiperSlide>
+        <SwiperSlide>
+          <button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button>
+        </SwiperSlide>
+        <SwiperSlide>
+          <button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button>
+        </SwiperSlide>
+        <SwiperSlide>
+          <ExWithReps />
+        </SwiperSlide>
       </div>
       ...
     </Swiper>
   );
-};
+}
 
 /*
 export default () => {

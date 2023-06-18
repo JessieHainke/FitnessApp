@@ -58,7 +58,7 @@ export default function Workout() {
       </div>
       <div className="flex justify-center content-between flex-wrap">
         <NavLink
-        to={`/exercises/${workoutId}`}
+        to={`/exercises/${programId}/workout/${workoutId}`}
         className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 items-center flex justify-center mx-36 text-black"
       >
         los!
