@@ -41,6 +41,8 @@ export default function Ex() {
   const slides = exercises.map((exercise, index) => {
     const exerciseName = exercise.exercise.name;
     const { duration } = exercise;
+
+    
     if ("duration" in exercise) {
       return (
         <div key={index}>

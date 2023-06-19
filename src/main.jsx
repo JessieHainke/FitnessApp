@@ -62,7 +62,7 @@ const router = createBrowserRouter([
     element: <ButtonsOrange />,
   },
   {
-    path: "/exercises/:programId/workout/:workoutId",
+    path: "ex/exercises/:programId/workout/:workoutId",
     element: <Exercises />,
   },
   {
@@ -94,7 +94,7 @@ const router = createBrowserRouter([
     element: <Swiper/>,
   },
   {
-    path: "/ex",
+    path: "/ex/exercise/program/:programId/workout/:workoutId",
     element: <Ex/>,
   },
   {
