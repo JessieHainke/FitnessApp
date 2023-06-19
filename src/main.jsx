@@ -26,6 +26,7 @@ import ExerciseEnd from "./App/ExerciseEnd";
 import WorkoutEnd from "./App/WorkoutEnd";
 import ProgramChart from "./App/ProgramChart";
 import Swiper from "./App/Swiper";
+import Ex from "./Components/Ex";
 
 import "./App/browse.css";
 
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
   {
     path: "/swiper",
     element: <Swiper/>,
+  },
+  {
+    path: "/ex",
+    element: <Ex/>,
   },
   {
     path: "*",

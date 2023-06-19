@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-export default function ExWithReps() {
+
+
+export default function ExWithReps( {reps, exerciseName }) {
+  
   return (
-    <div className='w-[20vw]'>ExWithReps</div>
+    <div>
+      <p>{reps}</p>test
+      <h1>{exerciseName}</h1>
+    </div>
   )
 }
