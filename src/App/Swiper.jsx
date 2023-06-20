@@ -3,19 +3,18 @@ import { NavLink, useParams, Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useState } from "react";
 import WorkoutFortschritt from "./WorkoutFortschritt";
 import ExWithReps from "../Components/ExWithReps";
 
 // Import Swiper styles
 import "swiper/swiper.css";
 import "swiper/swiper-bundle.css";
-import { useState } from "react";
-import ExWithDur from "../Components/ExWithDur";
+
 import Ex from "../Components/Ex";
 
-
 const TOEXERCISES = gql`
-  query TOEXERCISES ( $programId: ID!, $workoutId: ID! ) {
+  query TOEXERCISES($programId: ID!, $workoutId: ID!) {
     program(where: { id: $programId }) {
       id
       workouts(where: { id: $workoutId }) {
@@ -44,11 +43,8 @@ const TOEXERCISES = gql`
   }
 `;
 
-
-export default function Swipe() { 
-
+export default function Swipe() {
   const { programId, workoutId } = useParams();
-
 
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
@@ -57,14 +53,13 @@ export default function Swipe() {
     variables: { programId, workoutId },
   });
 
-const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
 
   console.log(data);
 
   if (loading) {
     return <div>Loading...</div>;
-  };
-  
+  }
 
   /*
   
@@ -175,7 +170,8 @@ console.log(program, exercises, workouts);
   );
 }
 
-{/*
+{
+  /*
 export default () => {
   return (
     <Swiper
@@ -215,4 +211,5 @@ export default function Swiper('.swiper', {
     </div>
   )
 }
-*/}
+*/
+}

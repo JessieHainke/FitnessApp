@@ -1,7 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
-import DefaultLayout from "../Layouts/DefaultLayout";
 import { Link, useParams } from "react-router-dom";
-
+import DefaultLayout from "../Layouts/DefaultLayout";
 
 const PROGRAMS = gql`
   query Programs {

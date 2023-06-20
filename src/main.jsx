@@ -13,7 +13,6 @@ import Dash from "./App/Dash";
 import Browse from "./App/Browse";
 import Profile from "./App/Profile";
 import Program from "./App/Program";
-
 import NameInput from "./App/NameInput";
 import WorkoutInfos from "./App/WorkoutInfos";
 import ButtonsOrange from "./App/ButtonsOrange";
@@ -62,7 +61,7 @@ const router = createBrowserRouter([
     element: <ButtonsOrange />,
   },
   {
-    path: "ex/exercises/:programId/workout/:workoutId",
+    path: "exercises/:programId/workout/:workoutId",
     element: <Exercises />,
   },
   {
@@ -91,11 +90,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/swiper",
-    element: <Swiper/>,
+    element: <Swiper />,
   },
   {
-    path: "/ex/exercise/program/:programId/workout/:workoutId",
-    element: <Ex/>,
+    path: "/ex",
+    element: <Ex />,
   },
   {
     path: "*",

@@ -5,7 +5,6 @@ import DefaultLayout from "../Layouts/DefaultLayout";
 import "./browse.css";
 import ButtonsOrange from "./ButtonsOrange";
 import IconX from "../Layouts/IconX";
-import Workout from "./Workout";
 
 const PROGRAM = gql`
   query Program($id: ID!) {
@@ -92,15 +91,17 @@ export default function Program() {
               {data.program.duration} WOCHEN
             </p>
           </div>
-            <div className="relative flex justify-center">
-                    {program.workouts.map((workout, index) => (
-              <NavLink 
-              className="rounded-full bg-gradient-to-br from-orange to-pink text-bgdark text-black h-fit px-4 py-3 inset-x-24 fixed"
+          <div className="relative flex justify-center">
+            {program.workouts.map((workout, index) => (
+              <NavLink
+                className="rounded-full bg-gradient-to-br from-orange to-pink  text-black h-fit px-4 py-3 inset-x-24 fixed"
                 key={`workout-${index}`}
-                  to={`workout/${workout.id}`}>
-              Los geht's!</NavLink>
-              ))}
-            </div>
+                to={`workout/${workout.id}`}
+              >
+                Los geht's!
+              </NavLink>
+            ))}
+          </div>
         </div>
       </div>
       <div className="bg-bgmedium text-white p-4">

@@ -34,7 +34,15 @@ const TOEXERCISES = gql`
 `;
 
 export default function Ex() {
-  const [activeSlide, setActiveSlide] = useState(0);
+
+ /* const { data, loading } = useQuery(TOEXERCISES);
+
+  
+  const { program } = data;
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   const { exercises } = data.program.workouts[0];
 
@@ -63,32 +71,7 @@ export default function Ex() {
     return <div key={index}>Unbekannte Übung</div>;
   });
 
-  const handleNextSlide = () => {
-    if (activeSlide === slides.length - 1) {
-      return;
-    }
-    setActiveSlide((prevSlide) => prevSlide + 1);
-  };
-
-  const handlePrevSlide = () => {
-    if (activeSlide === 0) {
-      return;
-    }
-  };
-
-  const renderPagination = () => {
-    return (
-      <div className="pagination">
-        {slides.map((_, index) => (
-          <span
-            key={index}
-            className={`dot ${activeSlide === index ? "active" : ""}`}
-            onClick={() => setActiveSlide(index)}
-          ></span>
-        ))}
-      </div>
-    );
-  };
-
+   */
+ 
   return <div>Ex</div>;
 }

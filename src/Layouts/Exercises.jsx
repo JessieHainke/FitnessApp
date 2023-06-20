@@ -2,17 +2,16 @@ import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import { NavLink, useParams, Link } from "react-router-dom";
 import DefaultLayout from "./DefaultLayout";
-import IconX from "./IconX";
 import NavbarExercises from "../Components/NavbarExercises";
 import WorkoutArrows from "./WorkoutArrows";
 import WorkoutFortschritt from "../App/WorkoutFortschritt";
 import WorkoutCountdown from "../App/Countdown";
 import WorkoutChart from "../App/WorkoutChart";
-
-
+import IconX from "./IconX";
 import Swiper from "../App/Swiper";
 
-{/*const EXERCISES = gql`
+{
+  /*const EXERCISES = gql`
   query Exercises($programId: ID!, $workoutId: ID!) {
     program(where: { id: $programId }) {
       id
@@ -46,10 +45,12 @@ import Swiper from "../App/Swiper";
       }
     }
   }
-`;*/}
+`;*/
+}
 
 export default function Exercises() {
-{/* const { programId, workoutId } = useParams();
+  {
+    /* const { programId, workoutId } = useParams();
 
   const { data, loading } = useQuery(EXERCISES, {
     variables: { programId, workoutId },
@@ -65,7 +66,8 @@ export default function Exercises() {
   const { workouts } = program;
   const { exercises } = data.program.workouts[0];
 
-console.log(program, exercises, workouts);*/}
+console.log(program, exercises, workouts);*/
+  }
 
   return (
     <div className="bg-bgdark text-white h-screen w-full flex flex-col">

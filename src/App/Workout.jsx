@@ -1,6 +1,5 @@
 import { useQuery, gql } from "@apollo/client";
 import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
-import Swiper from "./Swiper";
 
 
 const PROGRAM = gql`
@@ -12,7 +11,6 @@ const PROGRAM = gql`
         name
         duration
         category
-        
       }
     }
   }
@@ -30,10 +28,10 @@ export default function Workout() {
     return <div>Loading...</div>;
   }
 
-  const { program } = data; 
+  const { program } = data;
   const { workouts } = program;
-  console.log(workouts, program); 
-  
+  console.log(workouts, program);
+
   return (
     <div className="bg-bgdark text-white h-screen w-screen">
       <div className="flex pt-5 justify-center px-5">
@@ -58,13 +56,12 @@ export default function Workout() {
       </div>
       <div className="flex justify-center content-between flex-wrap">
         <NavLink
-        to={`/ex/exercises/${programId}/workout/${workoutId}`}
-        className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 items-center flex justify-center mx-36 text-black"
-      >
-        los!
-      </NavLink>
+          to={`/exercises/${programId}/workout/${workoutId}`}
+          className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 items-center flex justify-center mx-36 text-black"
+        >
+          los!
+        </NavLink>
       </div>
-      
     </div>
   );
 }
