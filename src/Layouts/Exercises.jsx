@@ -69,7 +69,7 @@ export default function Exercises() {
 console.log(program, exercises, workouts);*/
   }
 
-  return (
+  return ( // im Return gibt es hier keine img-Rückgaben - es liegt nicht an den img's selbst, sondern selbst wenn ich ein img direkt hier hineinsetze, geht es nicht
     <div className="bg-bgdark text-white h-screen w-full flex flex-col">
       <NavLink to={`/workout-end`}>
         <IconX />
