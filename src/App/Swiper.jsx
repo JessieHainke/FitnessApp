@@ -1,11 +1,11 @@
 // import Swiper core and required modules
-import { NavLink, useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useState } from "react";
-import WorkoutFortschritt from "./WorkoutFortschritt";
+
 import ExWithReps from "../Components/ExWithReps";
+import ExWithDur from "../Components/ExWithDur";
 
 // Import Swiper styles
 import "swiper/swiper.css";
@@ -46,14 +46,9 @@ const TOEXERCISES = gql`
 export default function Swipe() {
   const { programId, workoutId } = useParams();
 
-  const [showModal1, setShowModal1] = useState(false);
-  const [showModal2, setShowModal2] = useState(false);
-
   const { data, loading } = useQuery(TOEXERCISES, {
     variables: { programId, workoutId },
   });
-
-  const [activeSlide, setActiveSlide] = useState(0);
 
   console.log(data);
 
@@ -61,117 +56,85 @@ export default function Swipe() {
     return <div>Loading...</div>;
   }
 
-  /*
-  
+
 
   const { exercises } = data.program.workouts[0];
 
   const slides = exercises.map((exercise, index) => {
     const exerciseName = exercise.exercise.name;
-    const { duration } = exercise;
-    if ("duration" in exercise) {
+    const { duration, reps } = exercise;
+
+    if (duration in exercise) {
       return (
-        <div key={index}>
-          <ExWithDur 
-            exerciseName={exerciseName}
-            duration={duration}
-          />
-          <p>{exerciseName}</p>  
-        </div>
-      )
+        <Swiper
+          // install Swiper modules
+          modules={[Navigation, Pagination]}
+          spaceBetween={50}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: false }}
+          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => console.log("slide change")}
+          width={screen}
+          key={index + 1}
+          
+        >
+          <div className="flex flex-col items-center">
+            <SwiperSlide>
+              <button className="bg-gradient-to-br from-orange to-pink rounded-2xl">
+                {" "}
+              </button>
+            </SwiperSlide>
+            <SwiperSlide>
+              <ExWithDur />
+            </SwiperSlide>
+          </div>
+          ...
+        </Swiper>
+      );
     }
 
-    if ("reps" in exercise) {
+    if (reps in exercise) {
       return (
-        <div key={index}>
-          <ExWithReps reps={exercise.reps} exerciseName={exerciseName}/>
-        </div>
-      )
+        <Swiper
+          // install Swiper modules
+          modules={[Navigation, Pagination]}
+          spaceBetween={50}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: false }}
+          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => console.log("slide change")}
+          width={screen}
+          key={index + 1}
+        >
+          <div className="flex flex-col items-center">
+            <SwiperSlide>
+              <button className="bg-gradient-to-br from-orange to-pink rounded-2xl">
+                {" "}
+              </button>
+            </SwiperSlide>
+            <SwiperSlide>
+              <button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button>
+            </SwiperSlide>
+            <SwiperSlide>
+              <button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button>
+            </SwiperSlide>
+            <SwiperSlide>
+              <button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button>
+            </SwiperSlide>
+            <SwiperSlide>
+              <ExWithReps />
+            </SwiperSlide>
+          </div>
+          ...
+        </Swiper>
+      );
     }
-
-    return <div key={index}>Unbekannte Übung</div>
   });
-
-  const handleNextSlide = () => {
-    if (activeSlide === slides.length - 1) {
-      return;
-    }
-    setActiveSlide((prevSlide) => prevSlide + 1);
-  };
-
-  const handlePrevSlide = () => {
-    if (activeSlide === 0) {
-      return;
-    }
-  };
-
-  const renderPagination = () => {
-    return (
-      <div className="pagination">
-        {slides.map((_, index) => (
-        <span
-          key={index}
-          className={`dot ${activeSlide === index ? "active" : ""}`}
-          onClick={() => setActiveSlide(index)}
-        ></span>))}
-      </div>
-    );
-  };
-
-  return (
-    <div>
-
-
-    </div>
-  )
-  {
-    
-  const { program } = data;
-  const { workouts } = program;
-  
-
-console.log(program, exercises, workouts);
-
-  
-*/
-  return (
-    <Swiper
-      // install Swiper modules
-      modules={[Navigation, Pagination]}
-      spaceBetween={50}
-      slidesPerView={1}
-      navigation
-      pagination={{ clickable: false }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}
-      width={screen}
-    >
-      <div className="flex flex-col items-center">
-        <SwiperSlide>
-          <button className="bg-gradient-to-br from-orange to-pink rounded-2xl">
-            {" "}
-          </button>
-        </SwiperSlide>
-        <SwiperSlide>
-          <button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button>
-        </SwiperSlide>
-        <SwiperSlide>
-          <button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button>
-        </SwiperSlide>
-        <SwiperSlide>
-          <button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Ex />
-        </SwiperSlide>
-      </div>
-      ...
-    </Swiper>
-  );
 }
 
-{
-  /*
+/*
 export default () => {
   return (
     <Swiper
@@ -212,4 +175,4 @@ export default function Swiper('.swiper', {
   )
 }
 */
-}
+
