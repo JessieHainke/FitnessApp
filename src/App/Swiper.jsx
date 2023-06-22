@@ -26,6 +26,7 @@ const TOEXERCISES = gql`
               id
               name
               completed
+              type
             }
           }
           ... on ExerciseWithReps {
@@ -35,6 +36,7 @@ const TOEXERCISES = gql`
               id
               description
               completed
+              type
             }
           }
         }
@@ -56,123 +58,26 @@ export default function Swipe() {
     return <div>Loading...</div>;
   }
 
-
-
   const { exercises } = data.program.workouts[0];
 
-  const slides = exercises.map((exercise, index) => {
-    const exerciseName = exercise.exercise.name;
-    const { duration, reps } = exercise;
-
-    if (duration in exercise) {
-      return (
-        <Swiper
-          // install Swiper modules
-          modules={[Navigation, Pagination]}
-          spaceBetween={50}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: false }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
-          width={screen}
-          key={index + 1}
-          
-        >
-          <div className="flex flex-col items-center">
-            <SwiperSlide>
-              <button className="bg-gradient-to-br from-orange to-pink rounded-2xl">
-                {" "}
-              </button>
-            </SwiperSlide>
-            <SwiperSlide>
-              <ExWithDur />
-            </SwiperSlide>
-          </div>
-          ...
-        </Swiper>
-      );
-    }
-
-    if (reps in exercise) {
-      return (
-        <Swiper
-          // install Swiper modules
-          modules={[Navigation, Pagination]}
-          spaceBetween={50}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: false }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
-          width={screen}
-          key={index + 1}
-        >
-          <div className="flex flex-col items-center">
-            <SwiperSlide>
-              <button className="bg-gradient-to-br from-orange to-pink rounded-2xl">
-                {" "}
-              </button>
-            </SwiperSlide>
-            <SwiperSlide>
-              <button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button>
-            </SwiperSlide>
-            <SwiperSlide>
-              <button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button>
-            </SwiperSlide>
-            <SwiperSlide>
-              <button className="bg-gradient-to-br from-orange to-pink rounded-2xl"></button>
-            </SwiperSlide>
-            <SwiperSlide>
-              <ExWithReps />
-            </SwiperSlide>
-          </div>
-          ...
-        </Swiper>
-      );
-    }
-  });
-}
-
-/*
-export default () => {
   return (
-    <Swiper
+    <div className="w-full">
+      <Swiper
+      // install Swiper modules
+      modules={[Navigation, Pagination]}
       spaceBetween={50}
       slidesPerView={1}
       navigation
-      pagination {{ clickable: false }}
-      onSlideChange={() => console.log('slide change')}
+      pagination={{ clickable: false }}
       onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() => console.log("slide change")}
     >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-      ...
+      {exercises.map((exercise, index) => (
+        <SwiperSlide key={`swiperSlide-${index}`}>
+          {exercise.exercise.type === "reps" ? <ExWithReps /> : <ExWithDur />}
+        </SwiperSlide>
+      ))}
     </Swiper>
-  );
-};
-
-
-export default function Swiper('.swiper', {
-    direction: 'horizontal';
-    loop: true
-
-    // configure Swiper to use modules
-    modules: [Navigation, Pagination]
-  }
-) {
-  return (
-    <div className='swiper'>
-        <div className='swiper-wrapper'>
-            <div className='swiper-slide'>{data.program.workout.exercise[0]}</div>
-            <div className='swiper-slide'>{data.program.workout.exercise[0]}</div>
-            <div className='swiper-slide'>{data.program.workout.exercise[0]}</div>
-        </div>
-        <WorkoutArrows />
     </div>
-  )
+  );
 }
-*/
-

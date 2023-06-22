@@ -79,7 +79,7 @@ console.log(program, exercises, workouts);*/
       </div>
       <WorkoutChart className="items-center " />
       <WorkoutCountdown />
-      <NavbarExercises />
+      {/* <NavbarExercises /> */}
       <Swiper />
     </div>
   );
