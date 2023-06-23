@@ -38,6 +38,7 @@ const TOEXERCISES = gql`
               completed
               type
             }
+            reps
           }
         }
       }
@@ -74,7 +75,7 @@ export default function Swipe() {
     >
       {exercises.map((exercise, index) => (
         <SwiperSlide key={`swiperSlide-${index}`}>
-          {exercise.exercise.type === "reps" ? <ExWithReps /> : <ExWithDur />}
+          {exercise.exercise.type === "reps" ? <ExWithReps reps={exercise.reps} exName={exercise.name}/> : <ExWithDur />}
         </SwiperSlide>
       ))}
     </Swiper>

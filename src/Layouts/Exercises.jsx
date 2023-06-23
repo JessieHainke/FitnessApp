@@ -9,6 +9,7 @@ import WorkoutCountdown from "../App/Countdown";
 import WorkoutChart from "../App/WorkoutChart";
 import IconX from "./IconX";
 import Swiper from "../App/Swiper";
+import ExWithDur from "../Components/ExWithDur";
 
 {
   /*const EXERCISES = gql`
@@ -68,19 +69,10 @@ export default function Exercises() {
 
 console.log(program, exercises, workouts);*/
   }
-
-  return ( // im Return gibt es hier keine img-Rückgaben - es liegt nicht an den img's selbst, sondern selbst wenn ich ein img direkt hier hineinsetze, geht es nicht
+return ( // im Return gibt es hier keine img-Rückgaben - es liegt nicht an den img's selbst, sondern selbst wenn ich ein img direkt hier hineinsetze, geht es nicht
     <div className="bg-bgdark text-white h-screen w-full flex flex-col">
-      <NavLink to={`/workout-end`}>
-        <IconX />
-      </NavLink>
-      <div>
-        <p className="text-white flex justify-center text-2xl pt-10">{}</p>
-      </div>
-      <WorkoutChart className="items-center " />
-      <WorkoutCountdown />
-      {/* <NavbarExercises /> */}
       <Swiper />
     </div>
   );
+  
 }
