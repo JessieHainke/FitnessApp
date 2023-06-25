@@ -29,6 +29,7 @@ const TOEXERCISES = gql`
               completed
               type
             }
+            
           }
           ... on ExerciseWithReps {
             id
@@ -77,12 +78,12 @@ export default function Swipe() {
         {exercises.map((exercise, index) => (
           <SwiperSlide key={`swiperSlide-${index}`}>
             {exercise.exercise.type === "reps" ? (
-              <ExWithReps reps={exercise.reps} exName={exercise.name} />
+              <ExWithReps reps={exercise.reps} name={exercise.exercise.name} />
             ) : (
               <ExWithDur />
             )}
 
-            <NavLink className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 flex justify-center mx-36  text-black">
+            <NavLink className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 flex fixed bottom-10 justify-center mx-28 text-black">
               geschafft!
             </NavLink>
           </SwiperSlide>
