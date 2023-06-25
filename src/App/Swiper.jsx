@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { NavLink } from "react-router-dom";
 
 import ExWithReps from "../Components/ExWithReps";
 import ExWithDur from "../Components/ExWithDur";
@@ -64,21 +65,29 @@ export default function Swipe() {
   return (
     <div className="w-full">
       <Swiper
-      // install Swiper modules
-      modules={[Navigation, Pagination]}
-      spaceBetween={50}
-      slidesPerView={1}
-      navigation
-      pagination={{ clickable: false }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}
-    >
-      {exercises.map((exercise, index) => (
-        <SwiperSlide key={`swiperSlide-${index}`}>
-          {exercise.exercise.type === "reps" ? <ExWithReps reps={exercise.reps} exName={exercise.name}/> : <ExWithDur />}
-        </SwiperSlide>
-      ))}
-    </Swiper>
+        // install Swiper modules
+        modules={[Navigation, Pagination]}
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: false }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log("slide change")}
+      >
+        {exercises.map((exercise, index) => (
+          <SwiperSlide key={`swiperSlide-${index}`}>
+            {exercise.exercise.type === "reps" ? (
+              <ExWithReps reps={exercise.reps} exName={exercise.name} />
+            ) : (
+              <ExWithDur />
+            )}
+
+            <NavLink className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 flex justify-center mx-36  text-black">
+              geschafft!
+            </NavLink>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }

@@ -26,21 +26,6 @@ const Circle = ({ colour, pct }) => {
   );
 };
 
-// Zeitangabe in der Mitte des Kreises
-const Text = ({ percentage }) => {
-  return (
-    <text
-      x="50%"
-      y="50%"
-      dominantBaseline="central"
-      textAnchor="middle"
-      fontSize={"1.5em"}
-      color={"#fff"}
-    >
-      {percentage.toFixed(0)} sec
-    </text>
-  );
-};
 
 // Zeitdarstellung im Kreis
 const ProgramPie = ({ percentage, colour }) => {
