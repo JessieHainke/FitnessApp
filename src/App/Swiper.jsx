@@ -7,12 +7,11 @@ import { NavLink } from "react-router-dom";
 
 import ExWithReps from "../Components/ExWithReps";
 import ExWithDur from "../Components/ExWithDur";
+import IconX from "../Layouts/IconX";
 
 // Import Swiper styles
 import "swiper/swiper.css";
 import "swiper/swiper-bundle.css";
-
-import Ex from "../Components/Ex";
 
 const TOEXERCISES = gql`
   query TOEXERCISES($programId: ID!, $workoutId: ID!) {
@@ -29,7 +28,6 @@ const TOEXERCISES = gql`
               completed
               type
             }
-            
           }
           ... on ExerciseWithReps {
             id
@@ -78,12 +76,16 @@ export default function Swipe() {
         {exercises.map((exercise, index) => (
           <SwiperSlide key={`swiperSlide-${index}`}>
             {exercise.exercise.type === "reps" ? (
-              <ExWithReps reps={exercise.reps} name={exercise.exercise.name} description={exercise.exercise.description}/>
+              <ExWithReps
+                reps={exercise.reps}
+                name={exercise.exercise.name}
+                description={exercise.exercise.description}
+              />
             ) : (
               <ExWithDur />
             )}
-
-            <NavLink className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 flex fixed bottom-20 justify-center mx-28 text-black">
+            <IconX />
+            <NavLink to={`/exercise-end/`} className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 flex fixed bottom-20 justify-center mx-28 text-black">
               geschafft!
             </NavLink>
           </SwiperSlide>

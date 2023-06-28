@@ -5,9 +5,7 @@ import ExerciseEnd from "../App/ExerciseEnd";
 import { NavLink } from "react-router-dom";
 import NavbarExercises from "./NavbarExercises";
 
-
-
-export default function ExWithReps({ reps, exercise, name }) {
+export default function ExWithReps({ reps, name, description }) {
   return (
     <div>
       <div className="flex justify-center inset-x-1/2 bottom-1/2 absolute">
@@ -16,7 +14,7 @@ export default function ExWithReps({ reps, exercise, name }) {
       <div className="flex absolute text-wrap p-20 text-center bottom-1/4">
         <p className="text-white text-xl">{name}</p>
       </div>
-      <NavbarExercises />
+      <NavbarExercises reps={reps} name={name} description={description} />
     </div>
   );
 }

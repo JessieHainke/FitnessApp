@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import NavbarExerciseInfo from "./NavbarExerciseInfo";
 import Info from "../img/info.svg";
 
-export default function NavbarExercises() {
+export default function NavbarExercises({ description, name }) {
   const navigate = useNavigate();
   const routeChange = () => {
     const path = `/navbarExerciseInfo`;
