@@ -78,12 +78,12 @@ export default function Swipe() {
         {exercises.map((exercise, index) => (
           <SwiperSlide key={`swiperSlide-${index}`}>
             {exercise.exercise.type === "reps" ? (
-              <ExWithReps reps={exercise.reps} name={exercise.exercise.name} />
+              <ExWithReps reps={exercise.reps} name={exercise.exercise.name} description={exercise.exercise.description}/>
             ) : (
               <ExWithDur />
             )}
 
-            <NavLink className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 flex fixed bottom-10 justify-center mx-28 text-black">
+            <NavLink className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 flex fixed bottom-20 justify-center mx-28 text-black">
               geschafft!
             </NavLink>
           </SwiperSlide>

@@ -11,7 +11,7 @@ export default function NavbarExercises() {
   };
 
   return (
-    <div className="bg-bgmedium rounded-t-2xl z-10 fixed left-0 w-screen bottom-0">
+    <div className="bg-bgmedium rounded-t-2xl z-10 fixed left-0 h-14 w-screen bottom-0">
       <button className="float-right" onClick={routeChange}>
         <img src={Info}></img>
       </button>

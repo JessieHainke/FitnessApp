@@ -5,16 +5,18 @@ import WorkoutCountdown from "../App/Countdown";
 import WorkoutChart from "../App/WorkoutChart";
 import IconX from "../Layouts/IconX";
 import Swiper from "../App/Swiper";
+import NavbarExercises from "../Components/NavbarExercises"
 
-export default function ExWithDur() {
-  return ( // im Return gibt es hier keine img-Rückgaben - es liegt nicht an den img's selbst, sondern selbst wenn ich ein img direkt hier hineinsetze, geht es nicht
+export default function ExWithDur( { dur, name } ) {
+  return ( 
   <div>
-      <div>
-        <p className="text-white flex justify-center text-2xl pt-10">{}</p>
+      <div className="">
+        <p className="text-white flex justify-center text-xl pt-10">{dur}</p>
       </div>
       <WorkoutChart className="items-center " />
+      <div>{name}</div>
       <WorkoutCountdown />
-      {/* <NavbarExercises /> */}
+      <NavbarExercises />
   </div>
   );
 }

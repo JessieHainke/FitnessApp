@@ -69,8 +69,8 @@ export default function Exercises() {
 
 console.log(program, exercises, workouts);*/
   }
-return ( // im Return gibt es hier keine img-Rückgaben - es liegt nicht an den img's selbst, sondern selbst wenn ich ein img direkt hier hineinsetze, geht es nicht
-    <div className="bg-bgdark text-white h-screen w-full flex flex-col">
+return ( 
+    <div className="bg-bgdark text-white ">
       <Swiper />
     </div>
   );
