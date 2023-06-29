@@ -44,9 +44,9 @@ export default function Workout() {
                 className="top-6 right-6 fixed"
               ></img>
             </NavLink>
-            <div className="absolute inset-y-1/2 inset-x-1/4">
-              <h1 className="text-4xl"> Tag 1</h1>
-              <p>
+            <div className="flex justify-center flex-col absolute inset-y-1/2 ">
+              <h1 className="text-4xl text-center font-bold"> Tag 1</h1>
+              <p className="text-xs text-center leading-10">
                 {workout.duration} Min. - {workout.category}
               </p>
             </div>
@@ -57,7 +57,7 @@ export default function Workout() {
       <div className="flex justify-center content-between flex-wrap">
         <NavLink
           to={`/exercises/${programId}/workout/${workoutId}`}
-          className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 items-center flex justify-center mx-36 text-black"
+          className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 bottom-10 absolute items-center flex justify-center mx-36 text-black"
         >
           los!
         </NavLink>
