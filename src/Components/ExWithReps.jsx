@@ -14,7 +14,6 @@ export default function ExWithReps({ reps, name, description }) {
       <div className="flex absolute text-wrap p-20 text-center bottom-1/4">
         <p className="text-white text-xl">{name}</p>
       </div>
-      <NavbarExercises reps={reps} name={name} description={description} />
     </div>
   );
 }

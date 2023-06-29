@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 
-export default function NavbarExerciseInfo({ description, name }) {
+export default function NavbarExerciseInfo({ description, name, onClose }) {
   const navigate = useNavigate();
   const routeChange = () => {
     const path = `/default-workout/${id}`;
@@ -22,10 +22,10 @@ export default function NavbarExerciseInfo({ description, name }) {
         ></img>
       </div>
       <div className="fixed bottom-0 w-full h-3/4 m-0 text-white bg-bgmedium z-20 p-4 rounded-t-2xl">
-        <h2 className="text-2xl font-bold">{name}überschrift</h2>
-        <p className="pb-14">{description}text</p>
+        <h2 className="text-2xl font-bold">{name}</h2>
+        <p className="pb-14">{description}</p>
         <div className="flex justify-center">
-          <button className="bg-bgdark text-white" onClick={() => navigate(-1)}>
+          <button className="bg-bgdark text-white" onClick={onClose}>
             okay!
           </button>
         </div>

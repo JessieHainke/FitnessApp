@@ -1,4 +1,5 @@
 // import Swiper core and required modules
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
 import { Navigation, Pagination } from "swiper";
@@ -8,10 +9,12 @@ import { NavLink } from "react-router-dom";
 import ExWithReps from "../Components/ExWithReps";
 import ExWithDur from "../Components/ExWithDur";
 import IconX from "../Layouts/IconX";
+import Info from "../img/info.svg";
 
 // Import Swiper styles
 import "swiper/swiper.css";
 import "swiper/swiper-bundle.css";
+import NavbarExerciseInfo from "../Components/NavbarExerciseInfo";
 
 const TOEXERCISES = gql`
   query TOEXERCISES($programId: ID!, $workoutId: ID!) {
@@ -48,6 +51,7 @@ const TOEXERCISES = gql`
 
 export default function Swipe() {
   const { programId, workoutId } = useParams();
+  const [infoOpen, setInfoOpen] = useState(false);
 
   const { data, loading } = useQuery(TOEXERCISES, {
     variables: { programId, workoutId },
@@ -69,9 +73,11 @@ export default function Swipe() {
         spaceBetween={50}
         slidesPerView={1}
         navigation
-        pagination={{ clickable: false }}
+        pagination={false}
         onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        onSlideChange={() => {
+          setInfoOpen(false);
+        }}
       >
         {exercises.map((exercise, index) => (
           <SwiperSlide key={`swiperSlide-${index}`}>
@@ -85,9 +91,24 @@ export default function Swipe() {
               <ExWithDur />
             )}
             <IconX />
-            <NavLink to={`/exercise-end/`} className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 flex fixed bottom-20 justify-center mx-28 text-black">
+            <NavLink
+              to={`/exercise-end/`}
+              className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 flex fixed bottom-20 justify-center mx-28 text-black"
+            >
               geschafft!
             </NavLink>
+            <div className="bg-bgmedium rounded-t-2xl fixed left-0 h-14 w-screen bottom-0">
+              <button onClick={() => setInfoOpen((prevValue) => !prevValue)}>
+                <img src={Info} />
+              </button>
+            </div>
+            {infoOpen && (
+              <NavbarExerciseInfo
+                description={exercise.exercise.description}
+                name={exercise.exercise.name}
+                onClose={() => setInfoOpen(false)}
+              />
+            )}
           </SwiperSlide>
         ))}
       </Swiper>

@@ -16,7 +16,6 @@ export default function ExWithDur( { dur, name } ) {
       <WorkoutChart className="items-center " />
       <div>{name}</div>
       <WorkoutCountdown />
-      <NavbarExercises />
   </div>
   );
 }
