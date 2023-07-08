@@ -1,4 +1,5 @@
 import DefaultLayout from "../Layouts/DefaultLayout";
+import ProgramChart from "../App/ProgramChart"
 
 
 export default function Profile() {
@@ -9,6 +10,7 @@ export default function Profile() {
         <div className="rounded-full p-14 w-14 h-14 self-center bg-gradient-to-br from-greenblue to-seablue"></div>
         <p className="font-normal text-m pt-2 self-center">Profil bearbeiten</p>
       </div>
+      <ProgramChart />
       <p className="font-normal text-m">Aktueller Trainingsplan</p>
       <div className="bg-bgmedium m-0 pt-16 rounded-2xl px-4 pb-3 h-auto shadow-white flex gap-4">
         <img src="./img/profile_circle.svg" className="w-18 h-18 "></img>

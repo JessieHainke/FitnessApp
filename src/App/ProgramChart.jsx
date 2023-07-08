@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProgramPie from "./ProgramPie.jsx";
+import ProgramPie from "../App/ProgramPie";
 import "./chartStyle.css";
 import "../index.css";
 

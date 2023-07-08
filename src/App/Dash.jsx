@@ -37,7 +37,7 @@ export default function Dash() {
         </div>
         {data.programs.reduce((program, index) => (
           <Link
-            to={`/default-workout/${id}`}
+            to={`/program/${program.id}`}
             key={`programs-${index}`}
             className="bg-bgmedium pt-16 block w-full rounded-2xl px-4 pb-3 shadow-white"
           >
