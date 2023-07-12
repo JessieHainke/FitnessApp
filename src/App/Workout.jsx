@@ -45,7 +45,7 @@ export default function Workout() {
               ></img>
             </NavLink>
             <div className="flex justify-center flex-col absolute inset-y-1/2 ">
-              <h1 className="text-4xl text-center font-bold"> Tag 1</h1>
+              <h1 className="text-4xl text-center font-bold">Tag {index + 1}</h1>
               <p className="text-xs text-center leading-10">
                 {workout.duration} Min. - {workout.category}
               </p>

@@ -5,6 +5,7 @@ import { useQuery, gql } from "@apollo/client";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import ExWithReps from "../Components/ExWithReps";
 import ExWithDur from "../Components/ExWithDur";
@@ -57,6 +58,12 @@ export default function Swipe() {
     variables: { programId, workoutId },
   });
 
+  const navigate = useNavigate();
+  const routeChange = () => {
+    const path = `/browse`;
+    navigate(path);
+  };
+
   console.log(data);
 
   if (loading) {
@@ -81,6 +88,10 @@ export default function Swipe() {
       >
         {exercises.map((exercise, index) => (
           <SwiperSlide key={`swiperSlide-${index}`}>
+            <button className="right-5 top-5 absolute" onClick={routeChange}>
+              <IconX />
+            </button>
+
             {exercise.exercise.type === "reps" ? (
               <ExWithReps
                 reps={exercise.reps}
@@ -90,7 +101,7 @@ export default function Swipe() {
             ) : (
               <ExWithDur />
             )}
-            <IconX />
+
             <NavLink
               to={`/exercise-end/`}
               className="rounded-full bg-gradient-to-br from-orange to-pink px-12 py-2 flex fixed bottom-20 justify-center mx-28 text-black"

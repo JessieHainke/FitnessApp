@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function ExerciseEnd() {
   const navigate = useNavigate();
   const routeChange = () => {
-    const path = `/workout-end`;
+    const path = `/browse`;
     navigate(path);
   };
 
