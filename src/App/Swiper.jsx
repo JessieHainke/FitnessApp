@@ -72,6 +72,12 @@ export default function Swipe() {
 
   const { exercises } = data.program.workouts[0];
 
+ {/* const [timerPaused, setTimerPaused] = useState(false);
+
+  const handlePauseResume = () => {
+    setTimerPaused((prev) => !prev);
+  }; */}
+
   return (
     <div className="w-full">
       <Swiper
@@ -80,10 +86,11 @@ export default function Swipe() {
         spaceBetween={50}
         slidesPerView={1}
         navigation
-        pagination={false}
+        pagination={true}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => {
           setInfoOpen(false);
+          //handlePauseResume();
         }}
       >
         {exercises.map((exercise, index) => (
